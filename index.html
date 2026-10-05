@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>გიმნაზია შავნაბადა 10.1</title>
+
+    <!-- QR სკანერის ბიბლიოთეკა -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #fff0f0,
+                #ffffff,
+                #ffeaea
+            );
+
+            overflow: hidden;
+        }
+
+        .main {
+            text-align: center;
+
+            animation: comeUp 1.3s ease-out forwards;
+
+            transform: translateY(120vh);
+        }
+
+        .bubble {
+            background: white;
+
+            color: #e00000;
+
+            border: 8px solid #e00000;
+
+            border-radius: 60px;
+
+            padding: 35px 55px;
+
+            box-shadow:
+                0 15px 0 #a80000,
+                0 25px 40px rgba(180, 0, 0, 0.25);
+
+            text-shadow:
+                3px 3px 0 #ffaaaa;
+
+            font-weight: 900;
+        }
+
+        .school-name {
+            font-size: clamp(35px, 6vw, 80px);
+            line-height: 1.2;
+        }
+
+        .class-name {
+            font-size: clamp(50px, 7vw, 90px);
+            margin-top: 15px;
+            line-height: 1;
+        }
+
+        .scan-button {
+            margin-top: 45px;
+
+            padding: 18px 45px;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            color: white;
+            background: #e00000;
+
+            border: none;
+            border-radius: 35px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 0 #a00000,
+                0 15px 25px rgba(180, 0, 0, 0.25);
+
+            transition: 0.2s;
+        }
+
+        .scan-button:hover {
+            background: #f00000;
+            transform: translateY(-4px);
+        }
+
+        .scan-button:active {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 #a00000;
+        }
+
+        /* QR სკანერის ფანჯარა */
+
+        #scanner {
+            display: none;
+
+            position: fixed;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            width: min(90%, 500px);
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 25px;
+
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+
+            z-index: 1000;
+        }
+
+        #reader {
+            width: 100%;
+        }
+
+        .close-button {
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            background: #e00000;
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        @keyframes comeUp {
+
+            0% {
+                transform: translateY(120vh);
+                opacity: 0;
+            }
+
+            70% {
+                transform: translateY(-20px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .bubble {
+                margin: 20px;
+                padding: 25px 20px;
+                border-width: 6px;
+                border-radius: 45px;
+            }
+
+            .school-name {
+                font-size: 36px;
+            }
+
+            .class-name {
+                font-size: 55px;
+            }
+
+            .scan-button {
+                font-size: 20px;
+                padding: 15px 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="main">
+
+        <div class="bubble">
+
+            <div class="school-name">
+                გიმნაზია შავნაბადა
+            </div>
+
+            <div class="class-name">
+                10.1
+            </div>
+
+        </div>
+
+
+        <button
+            class="scan-button"
+            onclick="openScanner()"
+        >
+            📷 დაასკანერე
+        </button>
+
+    </div>
+
+
+    <!-- QR სკანერის ფანჯარა -->
+
+    <div id="scanner">
+
+        <h2>📷 QR კოდის სკანირება</h2>
+
+        <div id="reader"></div>
+
+        <button
+            class="close-button"
+            onclick="closeScanner()"
+        >
+            დახურვა
+        </button>
+
+    </div>
+
+
+    <script>
+
+        let qrScanner = null;
+
+
+        function openScanner() {
+
+            document.getElementById("scanner").style.display = "block";
+
+            qrScanner = new Html5Qrcode("reader");
+
+
+            qrScanner.start(
+
+                {
+                    facingMode: "environment"
+                },
+
+                {
+                    fps: 10,
+                    qrbox: 250
+                },
+
+                function(decodedText) {
+
+                    console.log("QR:", decodedText);
+
+                    qrScanner.stop().then(function() {
+
+                        window.location.href = decodedText;
+
+                    });
+
+                },
+
+                function(errorMessage) {
+
+                    // QR ჯერ ვერ წაიკითხა
+
+                }
+
+            ).catch(function(error) {
+
+                alert(
+                    "კამერის გახსნა ვერ მოხერხდა. გთხოვთ, კამერის გამოყენების უფლება მიეცით საიტს."
+                );
+
+            });
+
+        }
+
+
+        function closeScanner() {
+
+            if (qrScanner) {
+
+                qrScanner.stop().then(function() {
+
+                    qrScanner.clear();
+
+                    document.getElementById("scanner").style.display = "none";
+
+                });
+
+            } else {
+
+                document.getElementById("scanner").style.display = "none";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
