@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>შავნაბადა</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #173b6c;
+        }
+
+        .number {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #173b6c;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #173b6c;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>შავნაბადა</h1>
+
+            <div class="number" id="qrNumber">
+                QR კოდი
+            </div>
+
+            <p id="information">
+                ინფორმაცია ჩაიტვირთება...
+            </p>
+
+            <a class="back" href="index.html">
+                ← მთავარ გვერდზე დაბრუნება
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // URL-დან id-ის მიღება
+        const params = new URLSearchParams(window.location.search);
+
+        const id = params.get("id");
+
+
+        // QR კოდის ნომრის ჩვენება
+        if (id) {
+
+            document.getElementById("qrNumber").textContent =
+                "QR კოდი № " + id;
+
+        } else {
+
+            document.getElementById("qrNumber").textContent =
+                "QR კოდი";
+
+        }
+
+    </script>
+
+</body>
+</html>
