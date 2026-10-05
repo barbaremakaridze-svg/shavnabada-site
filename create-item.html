@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ნივთის დამატება</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>ნივთის დამატება</h1>
+
+    <form id="itemForm">
+
+        <label>
+            ნივთის სახელი
+        </label>
+
+        <input
+            type="text"
+            id="itemName"
+            placeholder="მაგ: შავი ჩანთა"
+            required
+        >
+
+        <label>
+            აღწერა
+        </label>
+
+        <textarea
+            id="itemDescription"
+            placeholder="მიუთითე ნივთის აღწერა"
+            required
+        ></textarea>
+
+        <button type="submit">
+            ნივთის შექმნა
+        </button>
+
+    </form>
+
+    <script>
+        document.getElementById("itemForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("itemName").value;
+            const description = document.getElementById("itemDescription").value;
+
+            console.log("ნივთის სახელი:", name);
+            console.log("აღწერა:", description);
+
+            alert("ნივთი შეიქმნა!");
+
+        });
+    </script>
+
+</body>
+</html>
