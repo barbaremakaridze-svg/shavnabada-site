@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>წყალბადი — Hydrogen</title>
 
   <style>
@@ -15,19 +16,20 @@
       margin: 0;
       padding: 40px 6%;
       font-family: Arial, "Noto Sans Georgian", sans-serif;
-      background: #f5f9ff;
-      color: #1769d2;
+      background: #f3f8ff;
+      color: #0878e8;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: 0 auto;
     }
 
     .content {
       display: flex;
       align-items: flex-start;
-      gap: 40px;
+      justify-content: space-between;
+      gap: 45px;
     }
 
     .info {
@@ -36,70 +38,84 @@
     }
 
     h1 {
-      font-size: 38px;
       margin-top: 0;
-      color: #0866d8;
+      margin-bottom: 25px;
+      color: #0066cc;
+      font-size: 38px;
     }
 
     .fact {
-      padding: 13px 0;
-      border-bottom: 1px solid #c9defb;
-      line-height: 1.8;
-      color: #1769d2;
+      padding: 14px 0;
+      border-bottom: 1px solid #c6defa;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #0878e8;
     }
 
     .fact strong {
-      color: #0866d8;
+      color: #0066cc;
     }
 
     .photo {
-      width: 36%;
-      max-width: 370px;
+      width: 38%;
+      max-width: 400px;
       flex-shrink: 0;
     }
 
     .photo img {
       display: block;
       width: 100%;
+      height: auto;
       border-radius: 18px;
-      object-fit: cover;
-      box-shadow: 0 8px 25px #1769d225;
+      box-shadow: 0 8px 25px rgba(0, 80, 180, 0.2);
+    }
+
+    .photo-caption {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #0878e8;
     }
 
     .history-button {
       margin-top: 28px;
       padding: 13px 28px;
-      border: 2px solid #1769d2;
+      border: 2px solid #0878e8;
       border-radius: 10px;
-      background: #1769d2;
-      color: white;
+      background: #0878e8;
+      color: #ffffff;
       font-size: 17px;
+      font-family: inherit;
       cursor: pointer;
       transition: 0.25s;
     }
 
     .history-button:hover {
-      background: white;
-      color: #1769d2;
+      background: #ffffff;
+      color: #0878e8;
     }
 
     .history {
-      margin-top: 22px;
-      padding: 22px;
-      border-left: 4px solid #1769d2;
-      border-radius: 8px;
-      background: white;
-      line-height: 1.9;
-      color: #1769d2;
-    }
-
-    .history h2,
-    .history p {
-      color: #1769d2;
+      margin-top: 30px;
+      padding: 25px;
+      border-left: 5px solid #0878e8;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 5px 20px rgba(0, 80, 180, 0.08);
+      color: #0878e8;
+      line-height: 2;
+      font-size: 16px;
     }
 
     .history h2 {
       margin-top: 0;
+      color: #0066cc;
+    }
+
+    .history p {
+      color: #0878e8;
+      margin-bottom: 20px;
     }
 
     [hidden] {
@@ -113,15 +129,26 @@
 
       .content {
         flex-direction: column;
+        gap: 30px;
       }
 
       .photo {
         width: 100%;
         max-width: 420px;
+        margin: 0 auto;
       }
 
       h1 {
         font-size: 30px;
+      }
+
+      .fact {
+        font-size: 16px;
+      }
+
+      .history {
+        padding: 18px;
+        font-size: 15px;
       }
     }
   </style>
@@ -129,17 +156,21 @@
 
 <body>
   <main class="container">
+
     <div class="content">
 
       <section class="info">
+
         <h1>წყალბადი (H)</h1>
 
         <div class="fact">
-          <strong>აღმოჩენის თარიღი:</strong> 1766 წელი
+          <strong>აღმოჩენის თარიღი:</strong>
+          1766 წელი
         </div>
 
         <div class="fact">
-          <strong>აღმომჩენი:</strong> ჰენრი კავენდიში
+          <strong>აღმომჩენი:</strong>
+          ჰენრი კავენდიში
         </div>
 
         <div class="fact">
@@ -149,7 +180,8 @@
         </div>
 
         <div class="fact">
-          <strong>ალოტროპები:</strong> H₂
+          <strong>ალოტროპები:</strong>
+          H₂
         </div>
 
         <button
@@ -161,19 +193,31 @@
         >
           ისტორია ▼
         </button>
+
       </section>
 
       <aside class="photo">
-        <!-- აქ ჩასვი შენი ფოტოს ფაილის მისამართი -->
+
+        <!-- ფოტო უნდა ატვირთო page.html-ის იმავე საქაღალდეში -->
         <img
-          src="hydrogen.jpg"
-          alt="წყალბადის მოლეკულის ილუსტრაცია"
+          src="Hydrogen-L.jpg"
+          alt="წყალბადის ატომის ლურჯი ილუსტრაცია"
         >
+
+        <p class="photo-caption">
+          წყალბადის ატომის ილუსტრაცია
+        </p>
+
       </aside>
 
     </div>
 
-    <section class="history" id="history" hidden>
+    <section
+      class="history"
+      id="history"
+      hidden
+    >
+
       <h2>წყალბადის ისტორია</h2>
 
       <p>
@@ -181,41 +225,54 @@
         პარაცელსუსმა შენიშნა, რომ გოგირდმჟავაში რკინის
         ნაფშვენების დამატებისას გამოყოფილი ბუშტუკები
         აალებადი იყო. 1671 წელს რობერტ ბოილმაც იგივე
-        მოვლენა აღწერა. თუმცა არც ერთ მათგანს არ შეუსწავლია
-        ეს აირი საკმარისად, ამიტომ წყალბადის აღმოჩენის
+        მოვლენა შენიშნა. თუმცა არც ერთ მათგანს არ
+        გაუგრძელებია კვლევა, ამიტომ წყალბადის აღმოჩენის
         დამსახურება ჰენრი კავენდიშს მიეწერება.
       </p>
 
       <p>
-        1766 წელს კავენდიშმა გამოყოფილი აირი შეაგროვა და
-        აჩვენა, რომ ის სხვა აირებისგან განსხვავდებოდა.
-        მოგვიანებით მან დაადგინა, რომ წყალბადის წვისას წყალი
-        წარმოიქმნება. ამ აღმოჩენამ ეჭვქვეშ დააყენა მანამდე
-        არსებული შეხედულება, თითქოს წყალი ელემენტი იყო.
-        აირს სახელი „ჰიდროგენი“ ანტუან ლავუაზიემ უწოდა.
-        ეს სახელწოდება წყლის წარმომქმნელს ნიშნავს.
+        1766 წელს მან გამოყოფილი აირი შეაგროვა და აჩვენა,
+        რომ ის სხვა აირებისგან განსხვავდებოდა.
+        მოგვიანებით კავენდიშმა დაადგინა, რომ წყალბადის
+        წვისას წყალი წარმოიქმნება. ამ აღმოჩენამ დაასრულა
+        რწმენა, თითქოს წყალი ქიმიური ელემენტი იყო.
+        აირს „ჰიდროგენი“ ანტუან ლავუაზიემ უწოდა.
+        ეს სახელი წყლის წარმომქმნელს ნიშნავს.
       </p>
 
       <p>
         1931 წელს ჰაროლდ იურიმ და მისმა კოლეგებმა,
-        რომლებიც აშშ-ში, კოლუმბიის უნივერსიტეტში მუშაობდნენ,
-        წყალბადის მეორე, უფრო იშვიათი ფორმა აღმოაჩინეს.
-        მას ჩვეულებრივ წყალბადზე დაახლოებით ორჯერ მეტი
-        მასა ჰქონდა და მას დეიტერიუმი უწოდეს.
+        რომლებიც აშშ-ში, კოლუმბიის უნივერსიტეტში
+        მუშაობდნენ, წყალბადის მეორე, უფრო იშვიათი ფორმა
+        აღმოაჩინეს. ამ ფორმას ჩვეულებრივ წყალბადზე
+        დაახლოებით ორჯერ მეტი მასა აქვს და მას
+        დეიტერიუმი უწოდეს.
       </p>
+
     </section>
+
   </main>
 
   <script>
-    const historyButton = document.getElementById("historyButton");
-    const history = document.getElementById("history");
+    const historyButton =
+      document.getElementById("historyButton");
+
+    const history =
+      document.getElementById("history");
 
     historyButton.addEventListener("click", function () {
-      const isHidden = history.hidden;
+      const isOpening = history.hidden;
 
-      history.hidden = !isHidden;
-      historyButton.setAttribute("aria-expanded", String(isHidden));
-      historyButton.textContent = isHidden ? "ისტორია ▲" : "ისტორია ▼";
+      history.hidden = !isOpening;
+
+      historyButton.setAttribute(
+        "aria-expanded",
+        String(isOpening)
+      );
+
+      historyButton.textContent = isOpening
+        ? "ისტორია ▲"
+        : "ისტორია ▼";
     });
   </script>
 </body>
