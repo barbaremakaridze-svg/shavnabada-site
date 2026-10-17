@@ -1,9 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="ka">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>წყალბადი — Hydrogen</title>
 
   <style>
@@ -13,32 +15,33 @@
 
     body {
       margin: 0;
-      padding: 40px 6%;
+      padding: 40px 5%;
       font-family: Arial, "Noto Sans Georgian", sans-serif;
       background: #f3f8ff;
       color: #0878e8;
     }
 
     .container {
-      max-width: 1150px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
+    /* მთავარი განლაგება */
     .content {
-      display: flex;
-      align-items: flex-start;
-      gap: 45px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 40px;
+      align-items: start;
     }
 
     .info {
-      flex: 1;
       min-width: 0;
     }
 
     h1 {
       margin: 0 0 25px;
-      color: #0066cc;
       font-size: 38px;
+      color: #0066cc;
     }
 
     .fact {
@@ -53,18 +56,83 @@
       color: #0066cc;
     }
 
+    /* ისტორიის ღილაკი */
+    .history-button {
+      margin-top: 25px;
+      padding: 13px 28px;
+      border: 2px solid #0878e8;
+      border-radius: 10px;
+      background: #0878e8;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .history-button:hover {
+      background: #ffffff;
+      color: #0878e8;
+    }
+
+    /* ისტორია რჩება მარცხენა სვეტში */
+    .history {
+      margin-top: 22px;
+      padding: 24px;
+      border-left: 5px solid #0878e8;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 5px 20px rgba(0, 80, 180, 0.08);
+      color: #0878e8;
+      font-size: 16px;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+      animation: appear 0.3s ease;
+    }
+
+    .history h2 {
+      margin-top: 0;
+      color: #0066cc;
+      font-size: 25px;
+    }
+
+    .history p {
+      margin-bottom: 20px;
+      color: #0878e8;
+    }
+
+    .history p:last-child {
+      margin-bottom: 0;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ფოტოები მარჯვენა სვეტში */
     .photo {
-      width: 38%;
-      max-width: 400px;
-      flex-shrink: 0;
+      width: 100%;
+      min-width: 0;
     }
 
     .photo img {
       display: block;
       width: 100%;
       height: auto;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0, 80, 180, 0.18);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 80, 180, 0.16);
     }
 
     .photo-caption {
@@ -75,64 +143,15 @@
       color: #0878e8;
     }
 
-    .history-button {
-      margin-top: 28px;
-      padding: 13px 28px;
-      border: 2px solid #0878e8;
-      border-radius: 10px;
-      background: #0878e8;
-      color: white;
-      font-family: inherit;
-      font-size: 17px;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .history-button:hover {
-      background: white;
-      color: #0878e8;
-    }
-
-    .history {
-      margin-top: 30px;
-      padding: 25px;
-      border-left: 5px solid #0878e8;
-      border-radius: 10px;
-      background: white;
-      box-shadow: 0 5px 20px rgba(0, 80, 180, 0.08);
-      color: #0878e8;
-      font-size: 16px;
-      line-height: 2;
-    }
-
-    .history h2 {
-      margin-top: 0;
-      color: #0066cc;
-    }
-
-    .history p {
-      color: #0878e8;
-      margin-bottom: 20px;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
-    @media (max-width: 700px) {
+    /* ტელეფონის ეკრანი */
+    @media (max-width: 750px) {
       body {
         padding: 25px 18px;
       }
 
       .content {
-        flex-direction: column;
-        gap: 25px;
-      }
-
-      .photo {
-        width: 100%;
-        max-width: 420px;
-        margin: 0 auto;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
       }
 
       h1 {
@@ -147,6 +166,11 @@
         padding: 18px;
         font-size: 15px;
       }
+
+      .photo {
+        max-width: 450px;
+        margin: 0 auto;
+      }
     }
   </style>
 </head>
@@ -156,7 +180,7 @@
 
     <div class="content">
 
-      <!-- წყალბადის ინფორმაცია -->
+      <!-- მარცხენა სვეტი: ინფორმაცია და ისტორია -->
       <section class="info">
 
         <h1>წყალბადი (H)</h1>
@@ -182,7 +206,7 @@
           H₂
         </div>
 
-        <!-- ისტორიის ღილაკი -->
+        <!-- ისტორიის გამოჩენა/დამალვა -->
         <button
           class="history-button"
           id="historyButton"
@@ -193,9 +217,49 @@
           ისტორია ▼
         </button>
 
+        <!-- ისტორია ღილაკის ქვემოთ, მარცხენა მხარეს -->
+        <section
+          class="history"
+          id="history"
+          hidden
+        >
+
+          <h2>წყალბადის ისტორია</h2>
+
+          <p>
+            XVI საუკუნის დასაწყისში ალქიმიკოსმა პარაცელსუსმა
+            შენიშნა, რომ გოგირდმჟავაში რკინის ნაფშვენების
+            დამატებისას გამოყოფილი ბუშტუკები აალებადი იყო.
+            1671 წელს რობერტ ბოილმაც იგივე მოვლენა შენიშნა.
+            თუმცა არც ერთ მათგანს კვლევა აღარ გაუგრძელებია,
+            ამიტომ წყალბადის აღმოჩენის დამსახურება
+            ჰენრი კავენდიშს მიეწერება.
+          </p>
+
+          <p>
+            1766 წელს კავენდიშმა გამოყოფილი აირი შეაგროვა
+            და აჩვენა, რომ ის სხვა აირებისგან განსხვავდებოდა.
+            მოგვიანებით მან დაადგინა, რომ წყალბადის წვისას
+            წყალი წარმოიქმნება. ამ აღმოჩენამ შეცვალა მანამდე
+            არსებული შეხედულება, თითქოს წყალი ელემენტი იყო.
+            აირს „ჰიდროგენი“ ანტუან ლავუაზიემ უწოდა.
+            ეს სახელწოდება წყლის წარმომქმნელს ნიშნავს.
+          </p>
+
+          <p>
+            1931 წელს ჰაროლდ იურიმ და მისმა კოლეგებმა,
+            რომლებიც აშშ-ში, კოლუმბიის უნივერსიტეტში
+            მუშაობდნენ, წყალბადის მეორე, უფრო იშვიათი ფორმა
+            აღმოაჩინეს. ამ ფორმას ჩვეულებრივ წყალბადზე
+            დაახლოებით ორჯერ მეტი მასა აქვს და მას
+            დეიტერიუმი უწოდეს.
+          </p>
+
+        </section>
+
       </section>
 
-      <!-- ორი ფოტო მარჯვენა მხარეს -->
+      <!-- მარჯვენა სვეტი: ორივე ფოტო -->
       <aside class="photo">
 
         <img
@@ -221,44 +285,6 @@
 
     </div>
 
-    <!-- ისტორიის ტექსტი -->
-    <section
-      class="history"
-      id="history"
-      hidden
-    >
-
-      <h2>წყალბადის ისტორია</h2>
-
-      <p>
-        XVI საუკუნის დასაწყისში ალქიმიკოსმა პარაცელსუსმა
-        შენიშნა, რომ გოგირდმჟავაში რკინის ნაფშვენების
-        დამატებისას გამოყოფილი ბუშტუკები აალებადი იყო.
-        1671 წელს რობერტ ბოილმაც იგივე მოვლენა შენიშნა.
-        თუმცა მათ კვლევა აღარ გააგრძელეს და წყალბადის
-        აღმოჩენის დამსახურება ჰენრი კავენდიშს მიეწერება.
-      </p>
-
-      <p>
-        1766 წელს კავენდიშმა გამოყოფილი აირი შეაგროვა
-        და აჩვენა, რომ ის სხვა აირებისგან განსხვავდებოდა.
-        მოგვიანებით მან დაადგინა, რომ წყალბადის წვისას
-        წყალი წარმოიქმნება. ამ აღმოჩენამ შეცვალა მანამდე
-        არსებული შეხედულება, თითქოს წყალი ელემენტი იყო.
-        აირს „ჰიდროგენი“ ანტუან ლავუაზიემ უწოდა.
-        ეს სახელწოდება წყლის წარმომქმნელს ნიშნავს.
-      </p>
-
-      <p>
-        1931 წელს ჰაროლდ იურიმ და მისმა კოლეგებმა,
-        რომლებიც აშშ-ში, კოლუმბიის უნივერსიტეტში
-        მუშაობდნენ, წყალბადის მეორე, უფრო იშვიათი ფორმა
-        აღმოაჩინეს. მას ჩვეულებრივ წყალბადზე დაახლოებით
-        ორჯერ მეტი მასა აქვს და მას დეიტერიუმი უწოდეს.
-      </p>
-
-    </section>
-
   </main>
 
   <script>
@@ -283,5 +309,6 @@
         : "ისტორია ▼";
     });
   </script>
+
 </body>
 </html>
