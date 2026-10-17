@@ -1,109 +1,222 @@
+
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>წყალბადი — Hydrogen</title>
 
-    <title>შავნაბადა</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
-        }
+    body {
+      margin: 0;
+      padding: 40px 6%;
+      font-family: Arial, "Noto Sans Georgian", sans-serif;
+      background: #f5f9ff;
+      color: #1769d2;
+    }
 
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+    .content {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+    }
 
-        h1 {
-            text-align: center;
-            color: #173b6c;
-        }
+    .info {
+      flex: 1;
+      min-width: 0;
+    }
 
-        .number {
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: #173b6c;
-            margin: 20px 0;
-        }
+    h1 {
+      font-size: 38px;
+      margin-top: 0;
+      color: #0866d8;
+    }
 
-        p {
-            font-size: 18px;
-            line-height: 1.7;
-        }
+    .fact {
+      padding: 13px 0;
+      border-bottom: 1px solid #c9defb;
+      line-height: 1.8;
+      color: #1769d2;
+    }
 
-        .back {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            background: #173b6c;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-        }
-    </style>
+    .fact strong {
+      color: #0866d8;
+    }
+
+    .photo {
+      width: 36%;
+      max-width: 370px;
+      flex-shrink: 0;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 8px 25px #1769d225;
+    }
+
+    .history-button {
+      margin-top: 28px;
+      padding: 13px 28px;
+      border: 2px solid #1769d2;
+      border-radius: 10px;
+      background: #1769d2;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .history-button:hover {
+      background: white;
+      color: #1769d2;
+    }
+
+    .history {
+      margin-top: 22px;
+      padding: 22px;
+      border-left: 4px solid #1769d2;
+      border-radius: 8px;
+      background: white;
+      line-height: 1.9;
+      color: #1769d2;
+    }
+
+    .history h2,
+    .history p {
+      color: #1769d2;
+    }
+
+    .history h2 {
+      margin-top: 0;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 25px 18px;
+      }
+
+      .content {
+        flex-direction: column;
+      }
+
+      .photo {
+        width: 100%;
+        max-width: 420px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="container">
+    <div class="content">
 
-    <div class="container">
+      <section class="info">
+        <h1>წყალბადი (H)</h1>
 
-        <div class="card">
-
-            <h1>შავნაბადა</h1>
-
-            <div class="number" id="qrNumber">
-                QR კოდი
-            </div>
-
-            <p id="information">
-                ინფორმაცია ჩაიტვირთება...
-            </p>
-
-            <a class="back" href="index.html">
-                ← მთავარ გვერდზე დაბრუნება
-            </a>
-
+        <div class="fact">
+          <strong>აღმოჩენის თარიღი:</strong> 1766 წელი
         </div>
+
+        <div class="fact">
+          <strong>აღმომჩენი:</strong> ჰენრი კავენდიში
+        </div>
+
+        <div class="fact">
+          <strong>სახელის წარმოშობა:</strong>
+          სახელწოდება მომდინარეობს ბერძნული სიტყვებიდან
+          „hydro“ და „genes“, რაც წყლის წარმოქმნას ნიშნავს.
+        </div>
+
+        <div class="fact">
+          <strong>ალოტროპები:</strong> H₂
+        </div>
+
+        <button
+          class="history-button"
+          id="historyButton"
+          type="button"
+          aria-expanded="false"
+          aria-controls="history"
+        >
+          ისტორია ▼
+        </button>
+      </section>
+
+      <aside class="photo">
+        <!-- აქ ჩასვი შენი ფოტოს ფაილის მისამართი -->
+        <img
+          src="hydrogen.jpg"
+          alt="წყალბადის მოლეკულის ილუსტრაცია"
+        >
+      </aside>
 
     </div>
 
+    <section class="history" id="history" hidden>
+      <h2>წყალბადის ისტორია</h2>
 
-    <script>
+      <p>
+        ჯერ კიდევ XVI საუკუნის დასაწყისში ალქიმიკოსმა
+        პარაცელსუსმა შენიშნა, რომ გოგირდმჟავაში რკინის
+        ნაფშვენების დამატებისას გამოყოფილი ბუშტუკები
+        აალებადი იყო. 1671 წელს რობერტ ბოილმაც იგივე
+        მოვლენა აღწერა. თუმცა არც ერთ მათგანს არ შეუსწავლია
+        ეს აირი საკმარისად, ამიტომ წყალბადის აღმოჩენის
+        დამსახურება ჰენრი კავენდიშს მიეწერება.
+      </p>
 
-        // URL-დან id-ის მიღება
-        const params = new URLSearchParams(window.location.search);
+      <p>
+        1766 წელს კავენდიშმა გამოყოფილი აირი შეაგროვა და
+        აჩვენა, რომ ის სხვა აირებისგან განსხვავდებოდა.
+        მოგვიანებით მან დაადგინა, რომ წყალბადის წვისას წყალი
+        წარმოიქმნება. ამ აღმოჩენამ ეჭვქვეშ დააყენა მანამდე
+        არსებული შეხედულება, თითქოს წყალი ელემენტი იყო.
+        აირს სახელი „ჰიდროგენი“ ანტუან ლავუაზიემ უწოდა.
+        ეს სახელწოდება წყლის წარმომქმნელს ნიშნავს.
+      </p>
 
-        const id = params.get("id");
+      <p>
+        1931 წელს ჰაროლდ იურიმ და მისმა კოლეგებმა,
+        რომლებიც აშშ-ში, კოლუმბიის უნივერსიტეტში მუშაობდნენ,
+        წყალბადის მეორე, უფრო იშვიათი ფორმა აღმოაჩინეს.
+        მას ჩვეულებრივ წყალბადზე დაახლოებით ორჯერ მეტი
+        მასა ჰქონდა და მას დეიტერიუმი უწოდეს.
+      </p>
+    </section>
+  </main>
 
+  <script>
+    const historyButton = document.getElementById("historyButton");
+    const history = document.getElementById("history");
 
-        // QR კოდის ნომრის ჩვენება
-        if (id) {
+    historyButton.addEventListener("click", function () {
+      const isHidden = history.hidden;
 
-            document.getElementById("qrNumber").textContent =
-                "QR კოდი № " + id;
-
-        } else {
-
-            document.getElementById("qrNumber").textContent =
-                "QR კოდი";
-
-        }
-
-    </script>
-
+      history.hidden = !isHidden;
+      historyButton.setAttribute("aria-expanded", String(isHidden));
+      historyButton.textContent = isHidden ? "ისტორია ▲" : "ისტორია ▼";
+    });
+  </script>
 </body>
 </html>
