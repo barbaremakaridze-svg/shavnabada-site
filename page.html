@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="ka">
 <head>
@@ -26,7 +25,6 @@
       margin: 0 auto;
     }
 
-    /* მთავარი განლაგება */
     .content {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 350px;
@@ -56,52 +54,58 @@
       color: #0066cc;
     }
 
-    /* ისტორიის ღილაკი */
-    .history-button {
+    /* ღილაკების განლაგება */
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-top: 25px;
-      padding: 13px 28px;
+    }
+
+    .toggle-button {
+      padding: 12px 24px;
       border: 2px solid #0878e8;
       border-radius: 10px;
       background: #0878e8;
-      color: #ffffff;
+      color: white;
       font-family: inherit;
-      font-size: 17px;
+      font-size: 16px;
       cursor: pointer;
       transition: background 0.25s, color 0.25s;
     }
 
-    .history-button:hover {
-      background: #ffffff;
+    .toggle-button:hover,
+    .toggle-button[aria-expanded="true"] {
+      background: white;
       color: #0878e8;
     }
 
-    /* ისტორია რჩება მარცხენა სვეტში */
-    .history {
+    /* ჩამოშლილი ინფორმაციის ბლოკები */
+    .details {
       margin-top: 22px;
-      padding: 24px;
+      padding: 22px;
       border-left: 5px solid #0878e8;
       border-radius: 10px;
-      background: #ffffff;
+      background: white;
       box-shadow: 0 5px 20px rgba(0, 80, 180, 0.08);
       color: #0878e8;
-      font-size: 16px;
       line-height: 1.9;
       overflow-wrap: anywhere;
-      animation: appear 0.3s ease;
+      animation: appear 0.25s ease;
     }
 
-    .history h2 {
+    .details h2 {
       margin-top: 0;
       color: #0066cc;
-      font-size: 25px;
+      font-size: 24px;
     }
 
-    .history p {
-      margin-bottom: 20px;
+    .details p {
       color: #0878e8;
+      margin-bottom: 18px;
     }
 
-    .history p:last-child {
+    .details p:last-child {
       margin-bottom: 0;
     }
 
@@ -112,7 +116,7 @@
     @keyframes appear {
       from {
         opacity: 0;
-        transform: translateY(-8px);
+        transform: translateY(-6px);
       }
 
       to {
@@ -121,7 +125,45 @@
       }
     }
 
-    /* ფოტოები მარჯვენა სვეტში */
+    /* ფაქტების ცხრილი */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #0878e8;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facts-table th,
+    .facts-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #d5e6fb;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .facts-table th {
+      background: #e8f2ff;
+      color: #005bbb;
+      font-weight: bold;
+    }
+
+    .facts-table td:first-child,
+    .facts-table td:nth-child(3) {
+      font-weight: bold;
+      color: #0066cc;
+    }
+
+    .facts-table tr:hover td {
+      background: #f4f9ff;
+    }
+
+    /* ფოტოები მარჯვენა მხარეს */
     .photo {
       width: 100%;
       min-width: 0;
@@ -146,12 +188,12 @@
     /* ტელეფონის ეკრანი */
     @media (max-width: 750px) {
       body {
-        padding: 25px 18px;
+        padding: 25px 16px;
       }
 
       .content {
         grid-template-columns: minmax(0, 1fr);
-        gap: 30px;
+        gap: 28px;
       }
 
       h1 {
@@ -162,9 +204,21 @@
         font-size: 16px;
       }
 
-      .history {
-        padding: 18px;
-        font-size: 15px;
+      .details {
+        padding: 16px;
+      }
+
+      .toggle-button {
+        padding: 11px 18px;
+      }
+
+      .facts-table {
+        font-size: 13px;
+      }
+
+      .facts-table th,
+      .facts-table td {
+        padding: 9px 7px;
       }
 
       .photo {
@@ -180,7 +234,7 @@
 
     <div class="content">
 
-      <!-- მარცხენა სვეტი: ინფორმაცია და ისტორია -->
+      <!-- მარცხენა მხარე -->
       <section class="info">
 
         <h1>წყალბადი (H)</h1>
@@ -206,20 +260,34 @@
           H₂
         </div>
 
-        <!-- ისტორიის გამოჩენა/დამალვა -->
-        <button
-          class="history-button"
-          id="historyButton"
-          type="button"
-          aria-expanded="false"
-          aria-controls="history"
-        >
-          ისტორია ▼
-        </button>
+        <!-- ისტორიისა და ფაქტების ღილაკები -->
+        <div class="buttons">
 
-        <!-- ისტორია ღილაკის ქვემოთ, მარცხენა მხარეს -->
+          <button
+            class="toggle-button"
+            id="historyButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="history"
+          >
+            ისტორია ▼
+          </button>
+
+          <button
+            class="toggle-button"
+            id="factsButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="facts"
+          >
+            ფაქტები ▼
+          </button>
+
+        </div>
+
+        <!-- ისტორია -->
         <section
-          class="history"
+          class="details"
           id="history"
           hidden
         >
@@ -250,16 +318,85 @@
             1931 წელს ჰაროლდ იურიმ და მისმა კოლეგებმა,
             რომლებიც აშშ-ში, კოლუმბიის უნივერსიტეტში
             მუშაობდნენ, წყალბადის მეორე, უფრო იშვიათი ფორმა
-            აღმოაჩინეს. ამ ფორმას ჩვეულებრივ წყალბადზე
-            დაახლოებით ორჯერ მეტი მასა აქვს და მას
-            დეიტერიუმი უწოდეს.
+            აღმოაჩინეს. მას ჩვეულებრივ წყალბადზე დაახლოებით
+            ორჯერ მეტი მასა აქვს და მას დეიტერიუმი უწოდეს.
           </p>
+
+        </section>
+
+        <!-- ფაქტები -->
+        <section
+          class="details"
+          id="facts"
+          hidden
+        >
+
+          <h2>წყალბადის ფაქტები</h2>
+
+          <div class="table-wrapper">
+            <table class="facts-table">
+
+              <thead>
+                <tr>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>ჯგუფი</td>
+                  <td>1</td>
+                  <td>დნობის ტემპერატურა</td>
+                  <td>−259.16 °C<br>−434.49 °F<br>13.99 K</td>
+                </tr>
+
+                <tr>
+                  <td>პერიოდი</td>
+                  <td>1</td>
+                  <td>დუღილის ტემპერატურა</td>
+                  <td>−252.879 °C<br>−423.182 °F<br>20.271 K</td>
+                </tr>
+
+                <tr>
+                  <td>ბლოკი</td>
+                  <td>s</td>
+                  <td>სიმკვრივე (გ/სმ³)</td>
+                  <td>0.000082</td>
+                </tr>
+
+                <tr>
+                  <td>ატომური ნომერი</td>
+                  <td>1</td>
+                  <td>შედარებითი ატომური მასა</td>
+                  <td>1.008</td>
+                </tr>
+
+                <tr>
+                  <td>მდგომარეობა 20 °C-ზე</td>
+                  <td>აირი</td>
+                  <td>ძირითადი იზოტოპები</td>
+                  <td>¹H, ²H</td>
+                </tr>
+
+                <tr>
+                  <td>ელექტრონული კონფიგურაცია</td>
+                  <td>1s¹</td>
+                  <td>CAS ნომერი</td>
+                  <td>133-74-0</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
 
         </section>
 
       </section>
 
-      <!-- მარჯვენა სვეტი: ორივე ფოტო -->
+      <!-- მარჯვენა მხარე: ორივე ფოტო -->
       <aside class="photo">
 
         <img
@@ -291,22 +428,63 @@
     const historyButton =
       document.getElementById("historyButton");
 
+    const factsButton =
+      document.getElementById("factsButton");
+
     const history =
       document.getElementById("history");
 
-    historyButton.addEventListener("click", function () {
-      const isOpening = history.hidden;
+    const facts =
+      document.getElementById("facts");
 
-      history.hidden = !isOpening;
+    function toggleSection(button, section, otherButton, otherSection, label) {
+      const isOpening = section.hidden;
 
-      historyButton.setAttribute(
+      section.hidden = !isOpening;
+
+      button.setAttribute(
         "aria-expanded",
         String(isOpening)
       );
 
-      historyButton.textContent = isOpening
-        ? "ისტორია ▲"
-        : "ისტორია ▼";
+      button.textContent = isOpening
+        ? label + " ▲"
+        : label + " ▼";
+
+      // ერთდროულად მხოლოდ ერთი ბლოკი იყოს გახსნილი
+      if (isOpening) {
+        otherSection.hidden = true;
+
+        otherButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        otherButton.textContent =
+          otherButton === historyButton
+            ? "ისტორია ▼"
+            : "ფაქტები ▼";
+      }
+    }
+
+    historyButton.addEventListener("click", function () {
+      toggleSection(
+        historyButton,
+        history,
+        factsButton,
+        facts,
+        "ისტორია"
+      );
+    });
+
+    factsButton.addEventListener("click", function () {
+      toggleSection(
+        factsButton,
+        facts,
+        historyButton,
+        history,
+        "ფაქტები"
+      );
     });
   </script>
 
