@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ჰელიუმი — Helium</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 5%;
+      font-family: Arial, "Noto Sans Georgian", sans-serif;
+      background: #fff8f0;
+      color: #e87518;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .info {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: 38px;
+      color: #d95f00;
+    }
+
+    .fact {
+      padding: 14px 0;
+      border-bottom: 1px solid #f5d2b5;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #e87518;
+    }
+
+    .fact strong {
+      color: #d95f00;
+    }
+
+    /* ღილაკების განლაგება */
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .toggle-button {
+      padding: 12px 24px;
+      border: 2px solid #e87518;
+      border-radius: 10px;
+      background: #e87518;
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .toggle-button:hover,
+    .toggle-button[aria-expanded="true"] {
+      background: white;
+      color: #e87518;
+    }
+
+    /* ჩამოშლილი ინფორმაციის ბლოკები */
+    .details {
+      margin-top: 22px;
+      padding: 22px;
+      border-left: 5px solid #e87518;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 5px 20px rgba(180, 90, 0, 0.08);
+      color: #e87518;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+      animation: appear 0.25s ease;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #d95f00;
+      font-size: 24px;
+    }
+
+    .details p {
+      color: #e87518;
+      margin-bottom: 18px;
+    }
+
+    .details p:last-child {
+      margin-bottom: 0;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ფაქტების ცხრილი */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #e87518;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facts-table th,
+    .facts-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #f5ddca;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .facts-table th {
+      background: #fff0e2;
+      color: #c65300;
+      font-weight: bold;
+    }
+
+    .facts-table td:first-child,
+    .facts-table td:nth-child(3) {
+      font-weight: bold;
+      color: #d95f00;
+    }
+
+    .facts-table tr:hover td {
+      background: #fff9f3;
+    }
+
+    /* ფოტოები მარჯვენა მხარეს */
+    .photo {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(180, 90, 0, 0.16);
+    }
+
+    .photo-caption {
+      margin: 10px 0 25px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #e87518;
+    }
+
+    /* ტელეფონის ეკრანი */
+    @media (max-width: 750px) {
+      body {
+        padding: 25px 16px;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .fact {
+        font-size: 16px;
+      }
+
+      .details {
+        padding: 16px;
+      }
+
+      .toggle-button {
+        padding: 11px 18px;
+      }
+
+      .facts-table {
+        font-size: 13px;
+      }
+
+      .facts-table th,
+      .facts-table td {
+        padding: 9px 7px;
+      }
+
+      .photo {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="content">
+
+      <!-- მარცხენა მხარე -->
+      <section class="info">
+
+        <h1>ჰელიუმი (He)</h1>
+
+        <div class="fact">
+          <strong>აღმოჩენის თარიღი:</strong>
+          1895 წელი
+        </div>
+
+        <div class="fact">
+          <strong>აღმომჩენები:</strong>
+          სერ უილიამ რამზი ლონდონში, ასევე დამოუკიდებლად პერ თეოდორ კლევე და ნილს აბრაამ ლანგლეტი შვედეთის ქალაქ უფსალაში.
+        </div>
+
+        <div class="fact">
+          <strong>სახელის წარმოშობა:</strong>
+          სახელწოდება მომდინარეობს ბერძნული სიტყვიდან „ჰელიოს“ (Helios), რაც მზეს ნიშნავს. ჰელიუმი პირველად მზის გვირგვინში აღმოაჩინეს.
+        </div>
+
+        <div class="fact">
+          <strong>ალოტროპები:</strong>
+          ჰელიუმს ჩვეულებრივ პირობებში ალოტროპული ფორმები არ აქვს.
+        </div>
+
+        <!-- ისტორიისა და ფაქტების ღილაკები -->
+        <div class="buttons">
+
+          <button
+            class="toggle-button"
+            id="historyButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="history"
+          >
+            ისტორია ▼
+          </button>
+
+          <button
+            class="toggle-button"
+            id="factsButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="facts"
+          >
+            ფაქტები ▼
+          </button>
+
+        </div>
+
+        <!-- ისტორია -->
+        <section
+          class="details"
+          id="history"
+          hidden
+        >
+
+          <h2>ჰელიუმის ისტორია</h2>
+
+          <p>
+            1868 წელს ფრანგი ასტრონომი პიერ ჟიულ სეზარ იანსენი მზის სრული დაბნელების დროს მზის სპექტრის შესასწავლად ინდოეთში გაემგზავრა. დაკვირვებისას მან აღმოაჩინა ახალი ყვითელი სპექტრული ხაზი, რომელიც მანამდე უცნობ ქიმიურ ელემენტზე მიუთითებდა.
+          </p>
+
+          <p>
+            იმავე სპექტრულ ხაზს აკვირდებოდა ინგლისელი მეცნიერი ჯოზეფ ნორმან ლოკიერი ლონდონში. იგი მზეს ქალაქის დაბინძურებული ატმოსფეროს პირობებშიც სწავლობდა. ლოკიერმა ივარაუდა, რომ ახალი ელემენტი მეტალი იყო და მას ჰელიუმი უწოდა.
+          </p>
+
+          <p>
+            1882 წელს იტალიელმა მეცნიერმა ლუიჯი პალმიერიმ ვეზუვის ვულკანიდან გამოყოფილ აირებში იგივე სპექტრული ხაზი აღმოაჩინა. 1889 წელს ამერიკელმა მეცნიერმა უილიამ ჰილებრანდმაც შენიშნა იგი, როდესაც მინერალ ურანინიტის (UO₂) მჟავაში გახსნის შედეგად გამოყოფილ აირს იკვლევდა.
+          </p>
+
+          <p>
+            თუმცა, მხოლოდ 1895 წელს შვედმა მეცნიერებმა პერ თეოდორ კლევემ და ნილს აბრაამ ლანგლეტმა გაიმეორეს ეს ექსპერიმენტი და დაადასტურეს, რომ აღმოჩენილი ელემენტი ჰელიუმი იყო.
+          </p>
+
+        </section>
+
+        <!-- ფაქტები -->
+        <section
+          class="details"
+          id="facts"
+          hidden
+        >
+
+          <h2>ჰელიუმის ფაქტები</h2>
+
+          <div class="table-wrapper">
+            <table class="facts-table">
+
+              <thead>
+                <tr>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>ჯგუფი</td>
+                  <td>18</td>
+                  <td>დნობის ტემპერატურა</td>
+                  <td>უცნობია</td>
+                </tr>
+
+                <tr>
+                  <td>პერიოდი</td>
+                  <td>1</td>
+                  <td>დუღილის ტემპერატურა</td>
+                  <td>−268.928 °C<br>−452.07 °F<br>4.222 K</td>
+                </tr>
+
+                <tr>
+                  <td>ბლოკი</td>
+                  <td>s</td>
+                  <td>სიმკვრივე (გ/სმ³)</td>
+                  <td>0.000164</td>
+                </tr>
+
+                <tr>
+                  <td>ატომური ნომერი</td>
+                  <td>2</td>
+                  <td>შეფარდებითი ატომური მასა</td>
+                  <td>4.003</td>
+                </tr>
+
+                <tr>
+                  <td>მდგომარეობა 20 °C-ზე</td>
+                  <td>აირი</td>
+                  <td>ძირითადი იზოტოპი</td>
+                  <td>⁴He</td>
+                </tr>
+
+                <tr>
+                  <td>ელექტრონული კონფიგურაცია</td>
+                  <td>1s²</td>
+                  <td>CAS ნომერი</td>
+                  <td>7440-59-7</td>
+                </tr>
+
+                <tr>
+                  <td>ChemSpider-ის ID</td>
+                  <td>22423</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+        </section>
+
+      </section>
+
+      <!-- მარჯვენა მხარე: ორივე ფოტო -->
+      <aside class="photo">
+
+        <img
+          src="ქ.png.jpg"
+          alt="ჰელიუმის პირველი ილუსტრაცია"
+        >
+
+        <p class="photo-caption">
+          ჰელიუმის ილუსტრაცია
+        </p>
+
+        <img
+          src="წ.png.png"
+          alt="ჰელიუმის მეორე ილუსტრაცია"
+          loading="lazy"
+        >
+
+        <p class="photo-caption">
+          ჰელიუმის მეორე ილუსტრაცია
+        </p>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <script>
+    const historyButton =
+      document.getElementById("historyButton");
+
+    const factsButton =
+      document.getElementById("factsButton");
+
+    const history =
+      document.getElementById("history");
+
+    const facts =
+      document.getElementById("facts");
+
+    function toggleSection(button, section, otherButton, otherSection, label) {
+      const isOpening = section.hidden;
+
+      section.hidden = !isOpening;
+
+      button.setAttribute(
+        "aria-expanded",
+        String(isOpening)
+      );
+
+      button.textContent = isOpening
+        ? label + " ▲"
+        : label + " ▼";
+
+      // ერთდროულად მხოლოდ ერთი ბლოკი იყოს გახსნილი
+      if (isOpening) {
+        otherSection.hidden = true;
+
+        otherButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        otherButton.textContent =
+          otherButton === historyButton
+            ? "ისტორია ▼"
+            : "ფაქტები ▼";
+      }
+    }
+
+    historyButton.addEventListener("click", function () {
+      toggleSection(
+        historyButton,
+        history,
+        factsButton,
+        facts,
+        "ისტორია"
+      );
+    });
+
+    factsButton.addEventListener("click", function () {
+      toggleSection(
+        factsButton,
+        facts,
+        historyButton,
+        history,
+        "ფაქტები"
+      );
+    });
+  </script>
+
+</body>
+</html>
