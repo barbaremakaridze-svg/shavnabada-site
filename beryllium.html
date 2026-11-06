@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ბერილიუმი — Beryllium</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 5%;
+      font-family: Arial, "Noto Sans Georgian", sans-serif;
+      background: #fff5f8;
+      color: #c45b82;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: 38px;
+      color: #c13f70;
+    }
+
+    .fact {
+      padding: 14px 0;
+      border-bottom: 1px solid #f0cbd9;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #c45b82;
+    }
+
+    .fact strong {
+      color: #a92e60;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .toggle-button {
+      padding: 12px 24px;
+      border: 2px solid #c45b82;
+      border-radius: 10px;
+      background: #c45b82;
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-button:hover {
+      background: #a92e60;
+      border-color: #a92e60;
+    }
+
+    .details {
+      margin-top: 22px;
+      padding: 22px;
+      border-left: 5px solid #c45b82;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 4px 15px rgba(196, 91, 130, 0.12);
+      color: #a92e60;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+      animation: appear 0.3s ease;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #c13f70;
+      font-size: 24px;
+    }
+
+    [hidden] {
+      display: none;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #c45b82;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facts-table th,
+    .facts-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #f0cbd9;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .facts-table th {
+      background: #fce5ee;
+      color: #a92e60;
+    }
+
+    .facts-table td:nth-child(1),
+    .facts-table td:nth-child(3) {
+      font-weight: bold;
+      color: #a92e60;
+    }
+
+    .facts-table tr:hover {
+      background: #fff0f5;
+    }
+
+    .photo {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(196, 91, 130, 0.18);
+    }
+
+    .photo-caption {
+      text-align: center;
+      margin: 10px 0 25px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 750px) {
+      body {
+        padding: 25px 16px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .fact {
+        font-size: 16px;
+      }
+
+      .details {
+        padding: 16px;
+      }
+
+      .toggle-button {
+        padding: 11px 18px;
+      }
+
+      .facts-table {
+        font-size: 13px;
+      }
+
+      .facts-table th,
+      .facts-table td {
+        padding: 9px 7px;
+      }
+
+      .photo {
+        max-width: 450px;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="content">
+
+      <div class="info">
+
+        <h1>ბერილიუმი (Be)</h1>
+
+        <div class="fact">
+          <strong>აღმოჩენის თარიღი:</strong> 1797 წელი
+        </div>
+
+        <div class="fact">
+          <strong>აღმომჩენი:</strong> ნიკოლას ლუი ვოკელენი
+        </div>
+
+        <div class="fact">
+          <strong>სახელწოდების წარმოშობა:</strong>
+          სახელი მომდინარეობს ბერძნული სიტყვიდან „beryllo“, რომელიც ბერილს ნიშნავს.
+        </div>
+
+        <div class="fact">
+          <strong>ალოტროპები:</strong> —
+        </div>
+
+        <div class="buttons">
+
+          <button class="toggle-button" id="historyButton">
+            ისტორია ▼
+          </button>
+
+          <button class="toggle-button" id="factsButton">
+            ფაქტები ▼
+          </button>
+
+        </div>
+
+        <div class="details" id="history" hidden>
+
+          <h2>ბერილიუმის ისტორია</h2>
+
+          <p>
+            ძვირფასი ქვები — ბერილი და ზურმუხტი — ორივე ბერილიუმის
+            ალუმინის სილიკატის (Be₃Al₂(SiO₃)₆) სახესხვაობაა.
+          </p>
+
+          <p>
+            ფრანგ მინერალოგს, აბე რენე ჰაიუის, მიაჩნდა, რომ ამ მინერალებში
+            შესაძლოა ახალი ქიმიური ელემენტი ყოფილიყო დამალული. მან ნიკოლას
+            ლუი ვოკელენს სთხოვა მათი გაანალიზება. ვოკელენმა აღმოაჩინა,
+            რომ ისინი ახალ მეტალს შეიცავდა და მისი შესწავლა დაიწყო.
+          </p>
+
+          <p>
+            1798 წლის თებერვალში ვოკელენმა თავისი აღმოჩენა საფრანგეთის
+            აკადემიას წარუდგინა და ელემენტს გლიცინიუმი უწოდა. სახელწოდება
+            მომდინარეობდა ბერძნული სიტყვიდან glykys, რაც ტკბილს ნიშნავს,
+            რადგან მისი ნაერთები ტკბილი გემოთი გამოირჩეოდა. თუმცა, სხვები
+            უპირატესობას ანიჭებდნენ სახელწოდებას „ბერილიუმი“, რომელიც
+            ძვირფასი ქვის — ბერილის — სახელიდან მომდინარეობს. საბოლოოდ,
+            ოფიციალურ სახელწოდებად სწორედ ბერილიუმი დამკვიდრდა.
+          </p>
+
+          <p>
+            ბერილიუმის მეტალი პირველად 1828 წელს გამოყვეს. ეს დამოუკიდებლად
+            გააკეთეს ფრიდრიხ ვიოლერმა ბერლინში და ანტუან ალექსანდრ ბრუსი
+            პარიზში. ორივემ ბერილიუმის ქლორიდიდან (BeCl₂) კალიუმთან
+            რეაქციის შედეგად მიიღო ბერილიუმი.
+          </p>
+
+        </div>
+
+        <div class="details" id="facts" hidden>
+
+          <h2>ბერილიუმის ფაქტები</h2>
+
+          <div class="table-wrapper">
+
+            <table class="facts-table">
+
+              <tr>
+                <th>მახასიათებელი</th>
+                <th>მნიშვნელობა</th>
+                <th>მახასიათებელი</th>
+                <th>მნიშვნელობა</th>
+              </tr>
+
+              <tr>
+                <td>ჯგუფი</td>
+                <td>2</td>
+                <td>დნობის ტემპერატურა</td>
+                <td>1287°C, 2349°F, 1560 K</td>
+              </tr>
+
+              <tr>
+                <td>პერიოდი</td>
+                <td>2</td>
+                <td>დუღილის ტემპერატურა</td>
+                <td>2468°C, 4474°F, 2741 K</td>
+              </tr>
+
+              <tr>
+                <td>ბლოკი</td>
+                <td>s</td>
+                <td>სიმკვრივე (გ/სმ³)</td>
+                <td>1.85</td>
+              </tr>
+
+              <tr>
+                <td>ატომური ნომერი</td>
+                <td>4</td>
+                <td>ფარდობითი ატომური მასა</td>
+                <td>9.012</td>
+              </tr>
+
+              <tr>
+                <td>მდგომარეობა 20°C-ზე</td>
+                <td>მყარი</td>
+                <td>ძირითადი იზოტოპი</td>
+                <td>⁹Be</td>
+              </tr>
+
+              <tr>
+                <td>ელექტრონული კონფიგურაცია</td>
+                <td>[He] 2s²</td>
+                <td>CAS ნომერი</td>
+                <td>7440-41-7</td>
+              </tr>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="photo">
+
+        <img src="Beryllium-L.jpg" alt="ბერილიუმი">
+
+        <p class="photo-caption">
+          ბერილიუმი — ქიმიური ელემენტი Be
+        </p>
+
+        <img src="გრგრ.png" alt="ბერილიუმის დამატებითი გამოსახულება">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    const historyButton = document.getElementById("historyButton");
+    const factsButton = document.getElementById("factsButton");
+
+    const history = document.getElementById("history");
+    const facts = document.getElementById("facts");
+
+    historyButton.addEventListener("click", function () {
+
+      history.hidden = !history.hidden;
+      facts.hidden = true;
+
+      historyButton.textContent = history.hidden
+        ? "ისტორია ▼"
+        : "ისტორია ▲";
+
+      factsButton.textContent = "ფაქტები ▼";
+
+    });
+
+    factsButton.addEventListener("click", function () {
+
+      facts.hidden = !facts.hidden;
+      history.hidden = true;
+
+      factsButton.textContent = facts.hidden
+        ? "ფაქტები ▼"
+        : "ფაქტები ▲";
+
+      historyButton.textContent = "ისტორია ▼";
+
+    });
+
+  </script>
+
+</body>
+</html>

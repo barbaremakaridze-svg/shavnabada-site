@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ბორი — Boron</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 5%;
+      font-family: Arial, "Noto Sans Georgian", sans-serif;
+      background: #f4fff5;
+      color: #39834b;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: 38px;
+      color: #26733b;
+    }
+
+    .fact {
+      padding: 14px 0;
+      border-bottom: 1px solid #cce8d1;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #39834b;
+    }
+
+    .fact strong {
+      color: #226b35;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .toggle-button {
+      padding: 12px 24px;
+      border: 2px solid #39834b;
+      border-radius: 10px;
+      background: #39834b;
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-button:hover {
+      background: #226b35;
+      border-color: #226b35;
+    }
+
+    .details {
+      margin-top: 22px;
+      padding: 22px;
+      border-left: 5px solid #39834b;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 4px 15px rgba(57, 131, 75, 0.12);
+      color: #226b35;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+      animation: appear 0.3s ease;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #26733b;
+      font-size: 24px;
+    }
+
+    [hidden] {
+      display: none;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #39834b;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facts-table th,
+    .facts-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #cce8d1;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .facts-table th {
+      background: #e2f5e6;
+      color: #226b35;
+    }
+
+    .facts-table td:nth-child(1),
+    .facts-table td:nth-child(3) {
+      font-weight: bold;
+      color: #226b35;
+    }
+
+    .facts-table tr:hover {
+      background: #edfaef;
+    }
+
+    .photo {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(57, 131, 75, 0.18);
+    }
+
+    .photo-caption {
+      text-align: center;
+      margin: 10px 0 25px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 750px) {
+      body {
+        padding: 25px 16px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .fact {
+        font-size: 16px;
+      }
+
+      .details {
+        padding: 16px;
+      }
+
+      .toggle-button {
+        padding: 11px 18px;
+      }
+
+      .facts-table {
+        font-size: 13px;
+      }
+
+      .facts-table th,
+      .facts-table td {
+        padding: 9px 7px;
+      }
+
+      .photo {
+        max-width: 450px;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="content">
+
+      <div class="info">
+
+        <h1>ბორი (B)</h1>
+
+        <div class="fact">
+          <strong>აღმოჩენის თარიღი:</strong> 1808 წელი
+        </div>
+
+        <div class="fact">
+          <strong>აღმომჩენები:</strong>
+          ლუი-ჟოზეფ გეი-ლუსაკი და ლუი-ჟაკ ტენარი პარიზში, საფრანგეთში,
+          ასევე ჰამფრი დევი ლონდონში, დიდ ბრიტანეთში.
+        </div>
+
+        <div class="fact">
+          <strong>სახელწოდების წარმოშობა:</strong>
+          სახელი მომდინარეობს არაბული სიტყვიდან „buraq“, რომელიც
+          ბორაქსის სახელწოდება იყო.
+        </div>
+
+        <div class="fact">
+          <strong>ალოტროპები:</strong>
+          α-რომბოედრული ბორი, β-რომბოედრული ბორი, γ-ბორი და ტეტრაგონალური ბორი.
+        </div>
+
+        <div class="buttons">
+
+          <button class="toggle-button" id="historyButton">
+            ისტორია ▼
+          </button>
+
+          <button class="toggle-button" id="factsButton">
+            ფაქტები ▼
+          </button>
+
+        </div>
+
+        <div class="details" id="history" hidden>
+
+          <h2>ბორის ისტორია</h2>
+
+          <p>
+            საუკუნეების განმავლობაში ბორაქსის (Na₂B₂O₅(OH)₄) ერთადერთი
+            წყარო ტიბეტში მდებარე იამდოკ ჩოს ტბის კრისტალიზებული ნალექები იყო.
+            ბორაქსს ოქრომჭედლები ლითონების დამუშავებისას დამხმარე
+            ნივთიერებად იყენებდნენ.
+          </p>
+
+          <p>
+            1808 წელს ლუი-ჟოზეფ გეი-ლუსაკმა და ლუი-ჟაკ ტენარმა პარიზში,
+            ხოლო სერ ჰამფრი დევიმ ლონდონში, ერთმანეთისგან დამოუკიდებლად
+            მიიღეს ბორი ბორაქსისა და მეტალური კალიუმის გაცხელებით.
+          </p>
+
+          <p>
+            სინამდვილეში, ვერც ერთმა მათგანმა ვერ მიიღო სრულიად სუფთა ბორი,
+            რომლის მიღებაც ძალიან რთულია. უფრო სუფთა ბორი 1892 წელს
+            ანრი მოასანმა გამოყო.
+          </p>
+
+          <p>
+            საბოლოოდ, ამერიკელმა მეცნიერმა ე. ვაინტრაუბმა შეძლო სრულიად
+            სუფთა ბორის მიღება ბორის ქლორიდის (BCl₃) ორთქლისა და წყალბადის
+            ნარევზე ელექტრული განმუხტვის გამოყენებით. აღმოჩნდა, რომ
+            მიღებულ ბორს მანამდე აღწერილი ბორისგან მნიშვნელოვნად
+            განსხვავებული თვისებები ჰქონდა.
+          </p>
+
+        </div>
+
+        <div class="details" id="facts" hidden>
+
+          <h2>ბორის ფაქტები</h2>
+
+          <div class="table-wrapper">
+
+            <table class="facts-table">
+
+              <tr>
+                <th>მახასიათებელი</th>
+                <th>მნიშვნელობა</th>
+                <th>მახასიათებელი</th>
+                <th>მნიშვნელობა</th>
+              </tr>
+
+              <tr>
+                <td>ჯგუფი</td>
+                <td>13</td>
+                <td>დნობის ტემპერატურა</td>
+                <td>2077°C, 3771°F, 2350 K</td>
+              </tr>
+
+              <tr>
+                <td>პერიოდი</td>
+                <td>2</td>
+                <td>დუღილის ტემპერატურა</td>
+                <td>4000°C, 7232°F, 4273 K</td>
+              </tr>
+
+              <tr>
+                <td>ბლოკი</td>
+                <td>p</td>
+                <td>სიმკვრივე (გ/სმ³)</td>
+                <td>2.34</td>
+              </tr>
+
+              <tr>
+                <td>ატომური ნომერი</td>
+                <td>5</td>
+                <td>ფარდობითი ატომური მასა</td>
+                <td>10.81</td>
+              </tr>
+
+              <tr>
+                <td>მდგომარეობა 20°C-ზე</td>
+                <td>მყარი</td>
+                <td>ძირითადი იზოტოპი</td>
+                <td>¹¹B</td>
+              </tr>
+
+              <tr>
+                <td>ელექტრონული კონფიგურაცია</td>
+                <td>[He] 2s²2p¹</td>
+                <td>CAS ნომერი</td>
+                <td>7440-42-8</td>
+              </tr>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="photo">
+
+        <img src="Boron-L.jpg" alt="ბორი">
+
+        <p class="photo-caption">
+          ბორი — ქიმიური ელემენტი B
+        </p>
+
+        <img src="გგგგგგგგგგგგგგგგგგ.png" alt="ბორის დამატებითი გამოსახულება">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    const historyButton = document.getElementById("historyButton");
+    const factsButton = document.getElementById("factsButton");
+
+    const history = document.getElementById("history");
+    const facts = document.getElementById("facts");
+
+    historyButton.addEventListener("click", function () {
+
+      history.hidden = !history.hidden;
+      facts.hidden = true;
+
+      historyButton.textContent = history.hidden
+        ? "ისტორია ▼"
+        : "ისტორია ▲";
+
+      factsButton.textContent = "ფაქტები ▼";
+
+    });
+
+    factsButton.addEventListener("click", function () {
+
+      facts.hidden = !facts.hidden;
+      history.hidden = true;
+
+      factsButton.textContent = facts.hidden
+        ? "ფაქტები ▼"
+        : "ფაქტები ▲";
+
+      historyButton.textContent = "ისტორია ▼";
+
+    });
+
+  </script>
+
+</body>
+</html>
