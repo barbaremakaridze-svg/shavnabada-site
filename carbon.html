@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ნახშირბადი — Carbon</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 5%;
+      font-family: Arial, "Noto Sans Georgian", sans-serif;
+      background: #faf7ff;
+      color: #8065a8;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .info {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: 38px;
+      color: #684b91;
+    }
+
+    .fact {
+      padding: 14px 0;
+      border-bottom: 1px solid #e5d9f2;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #8065a8;
+    }
+
+    .fact strong {
+      color: #684b91;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .toggle-button {
+      padding: 12px 24px;
+      border: 2px solid #8065a8;
+      border-radius: 10px;
+      background: #8065a8;
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .toggle-button:hover,
+    .toggle-button[aria-expanded="true"] {
+      background: white;
+      color: #8065a8;
+    }
+
+    .details {
+      margin-top: 22px;
+      padding: 22px;
+      border-left: 5px solid #8065a8;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 5px 20px rgba(100, 70, 140, 0.08);
+      color: #8065a8;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+      animation: appear 0.25s ease;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #684b91;
+      font-size: 24px;
+    }
+
+    .details p {
+      color: #8065a8;
+      margin-bottom: 18px;
+    }
+
+    .details p:last-child {
+      margin-bottom: 0;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #8065a8;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facts-table th,
+    .facts-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #e5d9f2;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .facts-table th {
+      background: #f0e8fa;
+      color: #684b91;
+      font-weight: bold;
+    }
+
+    .facts-table td:first-child,
+    .facts-table td:nth-child(3) {
+      font-weight: bold;
+      color: #684b91;
+    }
+
+    .facts-table tr:hover td {
+      background: #faf7ff;
+    }
+
+    .photo {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(100, 70, 140, 0.16);
+    }
+
+    .photo-caption {
+      margin: 10px 0 25px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #8065a8;
+    }
+
+    @media (max-width: 750px) {
+      body {
+        padding: 25px 16px;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .fact {
+        font-size: 16px;
+      }
+
+      .details {
+        padding: 16px;
+      }
+
+      .toggle-button {
+        padding: 11px 18px;
+      }
+
+      .facts-table {
+        font-size: 13px;
+      }
+
+      .facts-table th,
+      .facts-table td {
+        padding: 9px 7px;
+      }
+
+      .photo {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="content">
+
+      <!-- მარცხენა მხარე -->
+      <section class="info">
+
+        <h1>ნახშირბადი (C)</h1>
+
+        <div class="fact">
+          <strong>აღმოჩენის თარიღი:</strong>
+          პრეისტორიული ხანა
+        </div>
+
+        <div class="fact">
+          <strong>აღმომჩენი:</strong>
+          უცნობია. ნახშირბადი ადამიანისთვის უძველესი დროიდან იყო ცნობილი.
+        </div>
+
+        <div class="fact">
+          <strong>სახელის წარმოშობა:</strong>
+          სახელწოდება მომდინარეობს ლათინური სიტყვიდან „carbo“, რაც ნახშირს ნიშნავს.
+        </div>
+
+        <div class="fact">
+          <strong>ალოტროპები:</strong>
+          ალმასი, გრაფიტი, გრაფენი, ამორფული ნახშირბადი და ფულერენი.
+        </div>
+
+        <!-- ისტორიისა და ფაქტების ღილაკები -->
+        <div class="buttons">
+
+          <button
+            class="toggle-button"
+            id="historyButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="history"
+          >
+            ისტორია ▼
+          </button>
+
+          <button
+            class="toggle-button"
+            id="factsButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="facts"
+          >
+            ფაქტები ▼
+          </button>
+
+        </div>
+
+        <!-- ისტორია -->
+        <section
+          class="details"
+          id="history"
+          hidden
+        >
+
+          <h2>ნახშირბადის ისტორია</h2>
+
+          <p>
+            ნახშირბადი ბუნებაში გვხვდება ანტრაციტის (ქვანახშირის სახეობა),
+            გრაფიტისა და ალმასის სახით. ისტორიულად უფრო ხელმისაწვდომი იყო
+            ჭვარტლი და ხის ნახშირი. საბოლოოდ, მეცნიერებმა დაადგინეს, რომ
+            ყველა ეს ნივთიერება ერთი და იმავე ქიმიური ელემენტის —
+            ნახშირბადის — სხვადასხვა ფორმაა.
+          </p>
+
+          <p>
+            ალმასის ამოცნობა ყველაზე რთული აღმოჩნდა. ფლორენციელი
+            ნატურალისტი ჯუზეპე ავერანი და ექიმი ჩიპრიანო ტარჯიონი
+            პირველები იყვნენ, რომლებმაც აღმოაჩინეს, რომ ალმასის
+            განადგურება გაცხელებით შეიძლებოდა.
+          </p>
+
+          <p>
+            1694 წელს მათ დიდი გამადიდებელი შუშის საშუალებით მზის სხივები
+            ალმასზე მიმართეს, რის შედეგადაც ძვირფასი ქვა საბოლოოდ გაქრა.
+          </p>
+
+          <p>
+            1771 წელს პიერ-ჟოზეფ მაკერმა და გოდფრუა დე ვილეტანეზმა
+            იგივე ექსპერიმენტი გაიმეორეს.
+          </p>
+
+          <p>
+            შემდეგ, 1796 წელს, ინგლისელმა ქიმიკოსმა სმითსონ ტენანტმა
+            საბოლოოდ დაამტკიცა, რომ ალმასი ნახშირბადის ერთ-ერთი ფორმა იყო.
+            მან აჩვენა, რომ ალმასის წვის შედეგად მხოლოდ ნახშირორჟანგი
+            (CO₂) წარმოიქმნება.
+          </p>
+
+        </section>
+
+        <!-- ფაქტები -->
+        <section
+          class="details"
+          id="facts"
+          hidden
+        >
+
+          <h2>ნახშირბადის ფაქტები</h2>
+
+          <div class="table-wrapper">
+            <table class="facts-table">
+
+              <thead>
+                <tr>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>ჯგუფი</td>
+                  <td>14</td>
+                  <td>სუბლიმაციის ტემპერატურა</td>
+                  <td>3825 °C<br>6917 °F<br>4098 K</td>
+                </tr>
+
+                <tr>
+                  <td>პერიოდი</td>
+                  <td>2</td>
+                  <td>სიმკვრივე (გ/სმ³)</td>
+                  <td>
+                    3.513 (ალმასი)<br>
+                    2.2 (გრაფიტი)
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>ბლოკი</td>
+                  <td>p</td>
+                  <td>შეფარდებითი ატომური მასა</td>
+                  <td>12.011</td>
+                </tr>
+
+                <tr>
+                  <td>ატომური ნომერი</td>
+                  <td>6</td>
+                  <td>მდგომარეობა 20 °C-ზე</td>
+                  <td>მყარი</td>
+                </tr>
+
+                <tr>
+                  <td>ძირითადი იზოტოპები</td>
+                  <td>¹²C, ¹³C, ¹⁴C</td>
+                  <td>ელექტრონული კონფიგურაცია</td>
+                  <td>[He] 2s² 2p²</td>
+                </tr>
+
+                <tr>
+                  <td>CAS ნომერი</td>
+                  <td>7440-44-0</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+        </section>
+
+      </section>
+
+      <!-- მარჯვენა მხარე: ორივე ფოტო -->
+      <aside class="photo">
+
+        <img
+          src="Carbon-L.jpg"
+          alt="ნახშირბადის პირველი ილუსტრაცია"
+        >
+
+        <p class="photo-caption">
+          ნახშირბადის ილუსტრაცია
+        </p>
+
+        <img
+          src="77777.png"
+          alt="ნახშირბადის მეორე ილუსტრაცია"
+          loading="lazy"
+        >
+
+        <p class="photo-caption">
+          ნახშირბადის მეორე ილუსტრაცია
+        </p>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <script>
+    const historyButton =
+      document.getElementById("historyButton");
+
+    const factsButton =
+      document.getElementById("factsButton");
+
+    const history =
+      document.getElementById("history");
+
+    const facts =
+      document.getElementById("facts");
+
+    function toggleSection(button, section, otherButton, otherSection, label) {
+      const isOpening = section.hidden;
+
+      section.hidden = !isOpening;
+
+      button.setAttribute(
+        "aria-expanded",
+        String(isOpening)
+      );
+
+      button.textContent = isOpening
+        ? label + " ▲"
+        : label + " ▼";
+
+      if (isOpening) {
+        otherSection.hidden = true;
+
+        otherButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        otherButton.textContent =
+          otherButton === historyButton
+            ? "ისტორია ▼"
+            : "ფაქტები ▼";
+      }
+    }
+
+    historyButton.addEventListener("click", function () {
+      toggleSection(
+        historyButton,
+        history,
+        factsButton,
+        facts,
+        "ისტორია"
+      );
+    });
+
+    factsButton.addEventListener("click", function () {
+      toggleSection(
+        factsButton,
+        facts,
+        historyButton,
+        history,
+        "ფაქტები"
+      );
+    });
+  </script>
+
+</body>
+</html>
