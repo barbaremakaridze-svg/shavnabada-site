@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ფთორი — Fluorine</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 5%;
+      font-family: Arial, "Noto Sans Georgian", sans-serif;
+      background: #fbf5ef;
+      color: #966443;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .info {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: 38px;
+      color: #704526;
+    }
+
+    .fact {
+      padding: 14px 0;
+      border-bottom: 1px solid #ead6c5;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #966443;
+    }
+
+    .fact strong {
+      color: #704526;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .toggle-button {
+      padding: 12px 24px;
+      border: 2px solid #966443;
+      border-radius: 10px;
+      background: #966443;
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .toggle-button:hover,
+    .toggle-button[aria-expanded="true"] {
+      background: white;
+      color: #966443;
+    }
+
+    .details {
+      margin-top: 22px;
+      padding: 22px;
+      border-left: 5px solid #966443;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 5px 20px rgba(120, 75, 40, 0.08);
+      color: #966443;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+      animation: appear 0.25s ease;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #704526;
+      font-size: 24px;
+    }
+
+    .details p {
+      color: #966443;
+      margin-bottom: 18px;
+    }
+
+    .details p:last-child {
+      margin-bottom: 0;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #966443;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facts-table th,
+    .facts-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #ead6c5;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .facts-table th {
+      background: #f5e8dc;
+      color: #704526;
+      font-weight: bold;
+    }
+
+    .facts-table td:first-child,
+    .facts-table td:nth-child(3) {
+      font-weight: bold;
+      color: #704526;
+    }
+
+    .facts-table tr:hover td {
+      background: #fbf5ef;
+    }
+
+    .photo {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(120, 75, 40, 0.16);
+    }
+
+    .photo-caption {
+      margin: 10px 0 25px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #966443;
+    }
+
+    @media (max-width: 750px) {
+      body {
+        padding: 25px 16px;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .fact {
+        font-size: 16px;
+      }
+
+      .details {
+        padding: 16px;
+      }
+
+      .toggle-button {
+        padding: 11px 18px;
+      }
+
+      .facts-table {
+        font-size: 13px;
+      }
+
+      .facts-table th,
+      .facts-table td {
+        padding: 9px 7px;
+      }
+
+      .photo {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="content">
+
+      <!-- მარცხენა მხარე -->
+      <section class="info">
+
+        <h1>ფთორი (F)</h1>
+
+        <div class="fact">
+          <strong>აღმოჩენის თარიღი:</strong>
+          1886 წელი
+        </div>
+
+        <div class="fact">
+          <strong>აღმომჩენი:</strong>
+          ანრი მოასანი
+        </div>
+
+        <div class="fact">
+          <strong>სახელწოდების წარმოშობა:</strong>
+          სახელი მომდინარეობს ლათინური სიტყვიდან „fluere“,
+          რაც „დინებას“ ან „დენას“ ნიშნავს.
+        </div>
+
+        <div class="fact">
+          <strong>ალოტროპები:</strong>
+          F₂
+        </div>
+
+        <!-- ისტორიისა და ფაქტების ღილაკები -->
+        <div class="buttons">
+
+          <button
+            class="toggle-button"
+            id="historyButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="history"
+          >
+            ისტორია ▼
+          </button>
+
+          <button
+            class="toggle-button"
+            id="factsButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="facts"
+          >
+            ფაქტები ▼
+          </button>
+
+        </div>
+
+        <!-- ისტორია -->
+        <section
+          class="details"
+          id="history"
+          hidden
+        >
+
+          <h2>ფთორის ისტორია</h2>
+
+          <p>
+            ადრეულმა ქიმიკოსებმა იცოდნენ, რომ მეტალების ფტორიდები
+            შეიცავდა უცნობ ელემენტს, რომელიც ქლორს ჰგავდა, თუმცა
+            მისი სუფთა სახით გამოყოფა ვერ შეძლეს. ფრანგმა მეცნიერმა
+            ანდრე-მარი ამპერმა 1812 წელს შემოიტანა სახელწოდება „ფთორი“.
+          </p>
+
+          <p>
+            ცნობილმა ინგლისელმა მეცნიერმა ჰამფრი დევიმაც ვერ შეძლო
+            ამ ელემენტის მიღება. ჰიდროფლუორმჟავიდან მისი გამოყოფის
+            მცდელობისას ის შეუძლოდ გახდა.
+          </p>
+
+          <p>
+            1869 წელს ბრიტანელმა ქიმიკოსმა ჯორჯ გორმა თხევად HF-ში
+            ელექტრული დენი გაატარა, თუმცა აღმოაჩინა, რომ გამოყოფილი
+            აირი მის აპარატურასთან ძალზე მძაფრ რეაქციაში შედიოდა.
+            მას მიაჩნდა, რომ ეს ფთორი იყო, მაგრამ აირის შეგროვება
+            და საკუთარი ვარაუდის დამტკიცება ვერ შეძლო.
+          </p>
+
+          <p>
+            საბოლოოდ, 1886 წელს ფრანგმა ქიმიკოსმა ანრი მოასანმა
+            შეძლო ფთორის მიღება. მან გამოიყენა კალიუმის ბიფტორიდის
+            (KHF₂) ელექტროლიზი, რომელიც თხევად HF-ში იყო გახსნილი.
+          </p>
+
+        </section>
+
+        <!-- ფაქტები -->
+        <section
+          class="details"
+          id="facts"
+          hidden
+        >
+
+          <h2>ფთორის ფაქტები</h2>
+
+          <div class="table-wrapper">
+            <table class="facts-table">
+
+              <thead>
+                <tr>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>ჯგუფი</td>
+                  <td>17</td>
+                  <td>დნობის ტემპერატურა</td>
+                  <td>−219.67 °C<br>−363.41 °F<br>53.48 K</td>
+                </tr>
+
+                <tr>
+                  <td>პერიოდი</td>
+                  <td>2</td>
+                  <td>დუღილის ტემპერატურა</td>
+                  <td>−188.11 °C<br>−306.6 °F<br>85.04 K</td>
+                </tr>
+
+                <tr>
+                  <td>ბლოკი</td>
+                  <td>p</td>
+                  <td>სიმკვრივე (გ/სმ³)</td>
+                  <td>0.001553</td>
+                </tr>
+
+                <tr>
+                  <td>ატომური ნომერი</td>
+                  <td>9</td>
+                  <td>ფარდობითი ატომური მასა</td>
+                  <td>18.998</td>
+                </tr>
+
+                <tr>
+                  <td>მდგომარეობა 20 °C-ზე</td>
+                  <td>აირადი</td>
+                  <td>ძირითადი იზოტოპი</td>
+                  <td>¹⁹F</td>
+                </tr>
+
+                <tr>
+                  <td>ელექტრონული კონფიგურაცია</td>
+                  <td>[He] 2s²2p⁵</td>
+                  <td>CAS ნომერი</td>
+                  <td>7782-41-4</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+
+        </section>
+
+      </section>
+
+      <!-- მარჯვენა მხარე: ორივე ფოტო -->
+      <aside class="photo">
+
+        <img
+          src="Fluorine-L.jpg"
+          alt="ფთორის პირველი ილუსტრაცია"
+        >
+
+        <p class="photo-caption">
+          ფთორის ილუსტრაცია
+        </p>
+
+        <img
+          src="88.png"
+          alt="ფთორის მეორე ილუსტრაცია"
+          loading="lazy"
+        >
+
+        <p class="photo-caption">
+          ფთორის მეორე ილუსტრაცია
+        </p>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <script>
+    const historyButton =
+      document.getElementById("historyButton");
+
+    const factsButton =
+      document.getElementById("factsButton");
+
+    const history =
+      document.getElementById("history");
+
+    const facts =
+      document.getElementById("facts");
+
+    function toggleSection(button, section, otherButton, otherSection, label) {
+      const isOpening = section.hidden;
+
+      section.hidden = !isOpening;
+
+      button.setAttribute(
+        "aria-expanded",
+        String(isOpening)
+      );
+
+      button.textContent = isOpening
+        ? label + " ▲"
+        : label + " ▼";
+
+      if (isOpening) {
+        otherSection.hidden = true;
+
+        otherButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        otherButton.textContent =
+          otherButton === historyButton
+            ? "ისტორია ▼"
+            : "ფაქტები ▼";
+      }
+    }
+
+    historyButton.addEventListener("click", function () {
+      toggleSection(
+        historyButton,
+        history,
+        factsButton,
+        facts,
+        "ისტორია"
+      );
+    });
+
+    factsButton.addEventListener("click", function () {
+      toggleSection(
+        factsButton,
+        facts,
+        historyButton,
+        history,
+        "ფაქტები"
+      );
+    });
+  </script>
+
+</body>
+</html>
