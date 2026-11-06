@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ნეონი — Neon</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 5%;
+      font-family: Arial, "Noto Sans Georgian", sans-serif;
+      background: #fffdf0;
+      color: #a88b12;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .info {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: 38px;
+      color: #806b16;
+    }
+
+    .fact {
+      padding: 14px 0;
+      border-bottom: 1px solid #eee4b8;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #a88b12;
+    }
+
+    .fact strong {
+      color: #806b16;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .toggle-button {
+      padding: 12px 24px;
+      border: 2px solid #b49a24;
+      border-radius: 10px;
+      background: #b49a24;
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .toggle-button:hover,
+    .toggle-button[aria-expanded="true"] {
+      background: white;
+      color: #a88b12;
+    }
+
+    .details {
+      margin-top: 22px;
+      padding: 22px;
+      border-left: 5px solid #b49a24;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 5px 20px rgba(120, 100, 20, 0.08);
+      color: #a88b12;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+      animation: appear 0.25s ease;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #806b16;
+      font-size: 24px;
+    }
+
+    .details p {
+      color: #a88b12;
+      margin-bottom: 18px;
+    }
+
+    .details p:last-child {
+      margin-bottom: 0;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #a88b12;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facts-table th,
+    .facts-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #eee4b8;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .facts-table th {
+      background: #f8f0c9;
+      color: #806b16;
+      font-weight: bold;
+    }
+
+    .facts-table td:first-child,
+    .facts-table td:nth-child(3) {
+      font-weight: bold;
+      color: #806b16;
+    }
+
+    .facts-table tr:hover td {
+      background: #fffdf0;
+    }
+
+    .photo {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(120, 100, 20, 0.16);
+    }
+
+    .photo-caption {
+      margin: 10px 0 25px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #a88b12;
+    }
+
+    @media (max-width: 750px) {
+
+      body {
+        padding: 25px 16px;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .fact {
+        font-size: 16px;
+      }
+
+      .details {
+        padding: 16px;
+      }
+
+      .toggle-button {
+        padding: 11px 18px;
+      }
+
+      .facts-table {
+        font-size: 13px;
+      }
+
+      .facts-table th,
+      .facts-table td {
+        padding: 9px 7px;
+      }
+
+      .photo {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <div class="content">
+
+      <!-- მარცხენა მხარე -->
+
+      <section class="info">
+
+        <h1>ნეონი (Ne)</h1>
+
+        <div class="fact">
+          <strong>აღმოჩენის თარიღი:</strong>
+          1898 წელი
+        </div>
+
+        <div class="fact">
+          <strong>აღმომჩენები:</strong>
+          სერ უილიამ რამზი და მორის ტრევერსი
+        </div>
+
+        <div class="fact">
+          <strong>სახელწოდების წარმოშობა:</strong>
+          სახელი მომდინარეობს ბერძნული სიტყვიდან „neos“,
+          რაც „ახალს“ ნიშნავს.
+        </div>
+
+        <div class="fact">
+          <strong>ალოტროპები:</strong>
+          —
+        </div>
+
+        <!-- ისტორიისა და ფაქტების ღილაკები -->
+
+        <div class="buttons">
+
+          <button
+            class="toggle-button"
+            id="historyButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="history"
+          >
+            ისტორია ▼
+          </button>
+
+          <button
+            class="toggle-button"
+            id="factsButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="facts"
+          >
+            ფაქტები ▼
+          </button>
+
+        </div>
+
+        <!-- ისტორია -->
+
+        <section
+          class="details"
+          id="history"
+          hidden
+        >
+
+          <h2>ნეონის ისტორია</h2>
+
+          <p>
+            1898 წელს ლონდონის საუნივერსიტეტო კოლეჯში მომუშავე
+            უილიამ რამზიმ და მორის ტრევერსმა თხევადი არგონის
+            აორთქლების გზით ახალი აირი გამოყვეს. ისინი ელოდნენ,
+            რომ აღმოაჩენდნენ უფრო მსუბუქ აირს, რომელიც პერიოდულ
+            სისტემაში არგონის ზემოთ არსებულ ადგილს დაიკავებდა.
+          </p>
+
+          <p>
+            შემდეგ მათ ექსპერიმენტი გაიმეორეს. ამჯერად მყარი
+            არგონი დაბალი წნევის პირობებში ნელა ააორთქლეს და
+            პირველად გამოყოფილი აირი შეაგროვეს.
+          </p>
+
+          <p>
+            ამჯერად ექსპერიმენტი წარმატებული აღმოჩნდა.
+            როდესაც ახალი აირის ნიმუში ატომურ სპექტრომეტრში
+            მოათავსეს, მეცნიერები გაოცდნენ მისი მკვეთრი
+            წითელი ნათებით. სწორედ ეს წითელი ნათებაა ის,
+            რასაც დღეს ნეონის სარეკლამო წარწერებთან ვაკავშირებთ.
+          </p>
+
+          <p>
+            რამზიმ ახალ აირს „ნეონი“ უწოდა, ბერძნული სიტყვიდან
+            „neos“, რაც „ახალს“ ნიშნავს.
+          </p>
+
+        </section>
+
+        <!-- ფაქტები -->
+
+        <section
+          class="details"
+          id="facts"
+          hidden
+        >
+
+          <h2>ნეონის ფაქტები</h2>
+
+          <div class="table-wrapper">
+
+            <table class="facts-table">
+
+              <thead>
+
+                <tr>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td>ჯგუფი</td>
+                  <td>18</td>
+                  <td>დნობის ტემპერატურა</td>
+                  <td>−248.59 °C<br>−415.46 °F<br>24.56 K</td>
+                </tr>
+
+                <tr>
+                  <td>პერიოდი</td>
+                  <td>2</td>
+                  <td>დუღილის ტემპერატურა</td>
+                  <td>−246.046 °C<br>−410.883 °F<br>27.104 K</td>
+                </tr>
+
+                <tr>
+                  <td>ბლოკი</td>
+                  <td>p</td>
+                  <td>სიმკვრივე (გ/სმ³)</td>
+                  <td>0.000825</td>
+                </tr>
+
+                <tr>
+                  <td>ატომური ნომერი</td>
+                  <td>10</td>
+                  <td>ფარდობითი ატომური მასა</td>
+                  <td>20.180</td>
+                </tr>
+
+                <tr>
+                  <td>მდგომარეობა 20 °C-ზე</td>
+                  <td>აირადი</td>
+                  <td>ძირითადი იზოტოპი</td>
+                  <td>²⁰Ne</td>
+                </tr>
+
+                <tr>
+                  <td>ელექტრონული კონფიგურაცია</td>
+                  <td>[He] 2s²2p⁶</td>
+                  <td>CAS ნომერი</td>
+                  <td>7440-01-9</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </section>
+
+      </section>
+
+      <!-- მარჯვენა მხარე: ორივე ფოტო -->
+
+      <aside class="photo">
+
+        <img
+          src="Neon-L.jpg"
+          alt="ნეონის პირველი ილუსტრაცია"
+        >
+
+        <p class="photo-caption">
+          ნეონის ილუსტრაცია
+        </p>
+
+        <img
+          src="Screenshot 2026-11-06 184124.png"
+          alt="ნეონის მეორე ილუსტრაცია"
+          loading="lazy"
+        >
+
+        <p class="photo-caption">
+          ნეონის მეორე ილუსტრაცია
+        </p>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <script>
+
+    const historyButton =
+      document.getElementById("historyButton");
+
+    const factsButton =
+      document.getElementById("factsButton");
+
+    const history =
+      document.getElementById("history");
+
+    const facts =
+      document.getElementById("facts");
+
+    function toggleSection(button, section, otherButton, otherSection, label) {
+
+      const isOpening = section.hidden;
+
+      section.hidden = !isOpening;
+
+      button.setAttribute(
+        "aria-expanded",
+        String(isOpening)
+      );
+
+      button.textContent = isOpening
+        ? label + " ▲"
+        : label + " ▼";
+
+      if (isOpening) {
+
+        otherSection.hidden = true;
+
+        otherButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        otherButton.textContent =
+          otherButton === historyButton
+            ? "ისტორია ▼"
+            : "ფაქტები ▼";
+
+      }
+
+    }
+
+    historyButton.addEventListener("click", function () {
+
+      toggleSection(
+        historyButton,
+        history,
+        factsButton,
+        facts,
+        "ისტორია"
+      );
+
+    });
+
+    factsButton.addEventListener("click", function () {
+
+      toggleSection(
+        factsButton,
+        facts,
+        historyButton,
+        history,
+        "ფაქტები"
+      );
+
+    });
+
+  </script>
+
+</body>
+
+</html>
