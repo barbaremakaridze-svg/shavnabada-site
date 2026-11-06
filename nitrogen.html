@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>აზოტი — Nitrogen</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 5%;
+      font-family: Arial, "Noto Sans Georgian", sans-serif;
+      background: #f7f7f7;
+      color: #666666;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .info {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: 38px;
+      color: #444444;
+    }
+
+    .fact {
+      padding: 14px 0;
+      border-bottom: 1px solid #dddddd;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #666666;
+    }
+
+    .fact strong {
+      color: #444444;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .toggle-button {
+      padding: 12px 24px;
+      border: 2px solid #777777;
+      border-radius: 10px;
+      background: #777777;
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .toggle-button:hover,
+    .toggle-button[aria-expanded="true"] {
+      background: white;
+      color: #777777;
+    }
+
+    .details {
+      margin-top: 22px;
+      padding: 22px;
+      border-left: 5px solid #777777;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      color: #666666;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+      animation: appear 0.25s ease;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #444444;
+      font-size: 24px;
+    }
+
+    .details p {
+      color: #666666;
+      margin-bottom: 18px;
+    }
+
+    .details p:last-child {
+      margin-bottom: 0;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #666666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facts-table th,
+    .facts-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #dddddd;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .facts-table th {
+      background: #eeeeee;
+      color: #444444;
+      font-weight: bold;
+    }
+
+    .facts-table td:first-child,
+    .facts-table td:nth-child(3) {
+      font-weight: bold;
+      color: #444444;
+    }
+
+    .facts-table tr:hover td {
+      background: #f7f7f7;
+    }
+
+    .photo {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .photo-caption {
+      margin: 10px 0 25px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #666666;
+    }
+
+    @media (max-width: 750px) {
+      body {
+        padding: 25px 16px;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .fact {
+        font-size: 16px;
+      }
+
+      .details {
+        padding: 16px;
+      }
+
+      .toggle-button {
+        padding: 11px 18px;
+      }
+
+      .facts-table {
+        font-size: 13px;
+      }
+
+      .facts-table th,
+      .facts-table td {
+        padding: 9px 7px;
+      }
+
+      .photo {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="content">
+
+      <!-- მარცხენა მხარე -->
+      <section class="info">
+
+        <h1>აზოტი (N)</h1>
+
+        <div class="fact">
+          <strong>აღმოჩენის თარიღი:</strong>
+          1772 წელი
+        </div>
+
+        <div class="fact">
+          <strong>აღმომჩენი:</strong>
+          დანიელ რეზერფორდი
+        </div>
+
+        <div class="fact">
+          <strong>სახელწოდების წარმოშობა:</strong>
+          სახელი მომდინარეობს ბერძნული სიტყვებიდან „nitron“ და „genes“,
+          რაც „გვარჯილის წარმოქმნას“ ნიშნავს.
+        </div>
+
+        <div class="fact">
+          <strong>ალოტროპები:</strong>
+          N₂
+        </div>
+
+        <!-- ისტორიისა და ფაქტების ღილაკები -->
+        <div class="buttons">
+
+          <button
+            class="toggle-button"
+            id="historyButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="history"
+          >
+            ისტორია ▼
+          </button>
+
+          <button
+            class="toggle-button"
+            id="factsButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="facts"
+          >
+            ფაქტები ▼
+          </button>
+
+        </div>
+
+        <!-- ისტორია -->
+        <section
+          class="details"
+          id="history"
+          hidden
+        >
+
+          <h2>აზოტის ისტორია</h2>
+
+          <p>
+            აზოტი ამონიუმის ქლორიდის (NH₄Cl) სახით ალქიმიკოსებისთვის
+            ცნობილი იყო სახელწოდებით „სალ ამონიაკი“. მას ეგვიპტეში
+            ამზადებდნენ ნაკელის, მარილისა და შარდის ნარევის გაცხელებით.
+          </p>
+
+          <p>
+            აზოტის აირი პირველად 1760-იან წლებში ჰენრი კავენდიშმა
+            და ჯოზეფ პრისტლიმ მიიღეს. ამისთვის მათ ჰაერიდან ჟანგბადი
+            მოაშორეს. მათ შენიშნეს, რომ მიღებული აირი ანთებულ სანთელს
+            აქრობდა, ხოლო მისი ჩასუნთქვის შედეგად თაგვი მალევე იღუპებოდა.
+            თუმცა, ვერც ერთმა მათგანმა ვერ დაასკვნა, რომ ეს დამოუკიდებელი
+            ქიმიური ელემენტი იყო.
+          </p>
+
+          <p>
+            პირველი ადამიანი, რომელმაც აზოტი ცალკე ქიმიურ ელემენტად
+            მიიჩნია, ახალგაზრდა სტუდენტი დანიელ რეზერფორდი იყო.
+            მან ეს მოსაზრება 1772 წლის სექტემბერში, შოტლანდიაში,
+            ედინბურგის უნივერსიტეტში წარდგენილ სადოქტორო ნაშრომში გამოთქვა.
+          </p>
+
+        </section>
+
+        <!-- ფაქტები -->
+        <section
+          class="details"
+          id="facts"
+          hidden
+        >
+
+          <h2>აზოტის ფაქტები</h2>
+
+          <div class="table-wrapper">
+            <table class="facts-table">
+
+              <thead>
+                <tr>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                  <th>მახასიათებელი</th>
+                  <th>მნიშვნელობა</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>ჯგუფი</td>
+                  <td>15</td>
+                  <td>დნობის ტემპერატურა</td>
+                  <td>−210.0 °C<br>−346.0 °F<br>63.2 K</td>
+                </tr>
+
+                <tr>
+                  <td>პერიოდი</td>
+                  <td>2</td>
+                  <td>დუღილის ტემპერატურა</td>
+                  <td>−195.795 °C<br>−320.431 °F<br>77.355 K</td>
+                </tr>
+
+                <tr>
+                  <td>ბლოკი</td>
+                  <td>p</td>
+                  <td>სიმკვრივე (გ/სმ³)</td>
+                  <td>0.001145</td>
+                </tr>
+
+                <tr>
+                  <td>ატომური ნომერი</td>
+                  <td>7</td>
+                  <td>ფარდობითი ატომური მასა</td>
+                  <td>14.007</td>
+                </tr>
+
+                <tr>
+                  <td>მდგომარეობა 20 °C-ზე</td>
+                  <td>აირადი</td>
+                  <td>ძირითადი იზოტოპი</td>
+                  <td>¹⁴N</td>
+                </tr>
+
+                <tr>
+                  <td>ელექტრონული კონფიგურაცია</td>
+                  <td>[He] 2s²2p³</td>
+                  <td>CAS ნომერი</td>
+                  <td>7727-37-9</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+
+        </section>
+
+      </section>
+
+      <!-- მარჯვენა მხარე: ორივე ფოტო -->
+      <aside class="photo">
+
+        <img
+          src="Nitrogen-L.jpg"
+          alt="აზოტის პირველი ილუსტრაცია"
+        >
+
+        <p class="photo-caption">
+          აზოტის ილუსტრაცია
+        </p>
+
+        <img
+          src="44444444.png"
+          alt="აზოტის მეორე ილუსტრაცია"
+          loading="lazy"
+        >
+
+        <p class="photo-caption">
+          აზოტის მეორე ილუსტრაცია
+        </p>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <script>
+    const historyButton =
+      document.getElementById("historyButton");
+
+    const factsButton =
+      document.getElementById("factsButton");
+
+    const history =
+      document.getElementById("history");
+
+    const facts =
+      document.getElementById("facts");
+
+    function toggleSection(button, section, otherButton, otherSection, label) {
+      const isOpening = section.hidden;
+
+      section.hidden = !isOpening;
+
+      button.setAttribute(
+        "aria-expanded",
+        String(isOpening)
+      );
+
+      button.textContent = isOpening
+        ? label + " ▲"
+        : label + " ▼";
+
+      if (isOpening) {
+        otherSection.hidden = true;
+
+        otherButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        otherButton.textContent =
+          otherButton === historyButton
+            ? "ისტორია ▼"
+            : "ფაქტები ▼";
+      }
+    }
+
+    historyButton.addEventListener("click", function () {
+      toggleSection(
+        historyButton,
+        history,
+        factsButton,
+        facts,
+        "ისტორია"
+      );
+    });
+
+    factsButton.addEventListener("click", function () {
+      toggleSection(
+        factsButton,
+        facts,
+        historyButton,
+        history,
+        "ფაქტები"
+      );
+    });
+  </script>
+
+</body>
+</html>
