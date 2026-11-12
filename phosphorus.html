@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ფოსფორი — Phosphorus</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f5f5f5;
+    color: #707070;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #454545;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 13px 0;
+    border-bottom: 1px solid #dedede;
+    font-size: 16px;
+}
+
+.fact strong {
+    color: #454545;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.toggle-button {
+    background: #777777;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-button:hover {
+    background: #555555;
+}
+
+.details {
+    margin-top: 25px;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #dedede;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(80, 80, 80, 0.10);
+    animation: appear 0.3s ease;
+}
+
+.details[hidden] {
+    display: none;
+}
+
+.details h2 {
+    color: #454545;
+    margin-top: 0;
+}
+
+.details p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 500px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    border: 1px solid #dedede;
+}
+
+.facts-table th {
+    background: #e9e9e9;
+    color: #454545;
+}
+
+.facts-table td {
+    background: #ffffff;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(80, 80, 80, 0.12);
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #454545;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ფოსფორი (P)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი</strong>
+<span>1669 წელი</span>
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი</strong>
+<span>ჰენიგ ბრანდტი (Hennig Brandt)</span>
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა</strong>
+<span>სახელწოდება მომდინარეობს ბერძნული სიტყვიდან „phosphoros“, რაც „სინათლის მომტანს“ ნიშნავს.</span>
+</div>
+
+<div class="fact">
+<strong>ალოტროპები</strong>
+<span>თეთრი ფოსფორი, წითელი ფოსფორი, შავი ფოსფორი, P₂</span>
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false" aria-controls="history">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false" aria-controls="facts">
+ფაქტები ▼
+</button>
+</div>
+
+<section class="details" id="history" hidden>
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>ფოსფორი პირველად 1669 წელს გერმანელმა ალქიმიკოსმა ჰენიგ ბრანდტმა ჰამბურგში მიიღო. მისი აღმოჩენა შარდის აორთქლების შედეგად დარჩენილი ნარჩენის გაცხელებას უკავშირდება. ამ პროცესში გამოიყო ფოსფორის ორთქლი, რომელიც მან წყალში შეგროვებით გააცივა და ფოსფორი მიიღო.</p>
+
+<p>ბრანდტი აღმოჩენას საიდუმლოდ ინახავდა, რადგან ფიქრობდა, რომ ფილოსოფიური ქვა აღმოაჩინა — ნივთიერება, რომელსაც ჩვეულებრივი ლითონების ოქროდ გარდაქმნა შეეძლო.</p>
+
+<p>როდესაც მას ფული გამოელია, ფოსფორი დანიელ კრაფტს მიჰყიდა. კრაფტი ფოსფორს ევროპის სხვადასხვა ქვეყანაში, მათ შორის ლონდონშიც, აჩვენებდა. ამ ნივთიერებით დაინტერესდა რობერტ ბოილი, რომელმაც გაარკვია მისი მიღების მეთოდი და მისი თვისებების სისტემატური შესწავლა დაიწყო.</p>
+
+<p>ბოილის თანაშემწემ, ამბროზ გოდფრიმ, ფოსფორის წარმოებისა და გაყიდვის საკუთარი საქმიანობა წამოიწყო და გამდიდრდა.</p>
+
+<p>მოგვიანებით მეცნიერებმა დაადგინეს, რომ ძვლები კალციუმის ფოსფატს შეიცავდა და მისგან ფოსფორის მიღებაც შესაძლებელი იყო. ამის შედეგად ფოსფორი უფრო ხელმისაწვდომი გახდა.</p>
+
+<p>1800-იან წლებში ასანთის მწარმოებლების მხრიდან გაზრდილმა მოთხოვნამ ფოსფორისთვის სტაბილური ბაზარი შექმნა.</p>
+</section>
+
+<section class="details" id="facts" hidden>
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+<thead>
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ჯგუფი</td>
+<td>15</td>
+<td>დნობის ტემპერატურა</td>
+<td>44.15°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>3</td>
+<td>დუღილის ტემპერატურა</td>
+<td>280.5°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>1.823 გ/სმ³ (თეთრი ფოსფორი)</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>15</td>
+<td>შედარებითი ატომური მასა</td>
+<td>30.974</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>ძირითადი იზოტოპი</td>
+<td>³¹P</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Ne] 3s²3p³</td>
+<td>CAS ნომერი</td>
+<td>7723-14-0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</section>
+
+<aside class="photo">
+<img src="Phosphorus-L.jpg" alt="ფოსფორი">
+<p class="photo-caption">ფოსფორის ნიმუში</p>
+
+<img src="Screenshot 2026-11-12 212321.png" alt="ფოსფორის დამატებითი გამოსახულება">
+<p class="photo-caption">ფოსფორი — ქიმიური ელემენტი P</p>
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = !section.hidden;
+
+    section.hidden = isOpen;
+    button.setAttribute("aria-expanded", String(!isOpen));
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+
+    otherSection.hidden = true;
+    otherButton.setAttribute("aria-expanded", "false");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
