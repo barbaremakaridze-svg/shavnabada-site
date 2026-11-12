@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>მაგნიუმი — Magnesium</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #fff7fa;
+    color: #bd7893;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #a65375;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 13px 0;
+    border-bottom: 1px solid #f0dce5;
+    font-size: 16px;
+}
+
+.fact strong {
+    color: #a65375;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.toggle-button {
+    background: #d58eaa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-button:hover {
+    background: #b96e8c;
+}
+
+.details {
+    margin-top: 25px;
+    padding: 25px;
+    background: #fffafd;
+    border: 1px solid #f0dce5;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(190, 120, 150, 0.10);
+    animation: appear 0.3s ease;
+}
+
+.details[hidden] {
+    display: none;
+}
+
+.details h2 {
+    color: #a65375;
+    margin-top: 0;
+}
+
+.details p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 500px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    border: 1px solid #f0dce5;
+}
+
+.facts-table th {
+    background: #f8e8ef;
+    color: #a65375;
+}
+
+.facts-table td {
+    background: #fffafd;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+    background: #fffafd;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(190, 120, 150, 0.12);
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #a65375;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>მაგნიუმი (Mg)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი</strong>
+<span>1755 წელი</span>
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი</strong>
+<span>ჯოზეფ ბლექი (Joseph Black)</span>
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა</strong>
+<span>სახელწოდება მომდინარეობს საბერძნეთში, აღმოსავლეთ თესალიის რეგიონში მდებარე მაგნეზიის ოლქის სახელწოდებიდან.</span>
+</div>
+
+<div class="fact">
+<strong>ალოტროპები</strong>
+<span>არ აქვს</span>
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false" aria-controls="history">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false" aria-controls="facts">
+ფაქტები ▼
+</button>
+</div>
+
+<section class="details" id="history" hidden>
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>პირველი ადამიანი, რომელმაც მაგნიუმი ქიმიურ ელემენტად მიიჩნია, იყო ჯოზეფ ბლექი. მან ეს აღმოჩენა 1755 წელს, ედინბურგში გააკეთა.</p>
+
+<p>მან ერთმანეთისგან განასხვავა მაგნეზია (მაგნიუმის ოქსიდი, MgO) და კირი (კალციუმის ოქსიდი, CaO), მიუხედავად იმისა, რომ ორივე მსგავსი ტიპის კარბონატული ქანების გაცხელებით მიიღებოდა. ეს ქანები იყო შესაბამისად მაგნეზიტი და კირქვა.</p>
+
+<p>მაგნიუმის კიდევ ერთი მინერალი, სახელად მერშაუმი (მაგნიუმის სილიკატი), თომას ჰენრიმ 1789 წელს აღწერა. მისი თქმით, ამ მინერალს თურქეთში ფართოდ იყენებდნენ თამბაქოს მოსაწევი ჩიბუხების დასამზადებლად.</p>
+
+<p>ლითონური მაგნიუმის მინარევებიანი ფორმა პირველად 1792 წელს მიიღო ანტონ რუპრეხტმა, რომელმაც მაგნეზია ნახშირთან ერთად გააცხელა.</p>
+
+<p>1808 წელს ჰამფრი დეივიმ მაგნიუმის ოქსიდის ელექტროლიზის საშუალებით მიიღო სუფთა ლითონის მცირე რაოდენობა.</p>
+
+<p>თუმცა, მაგნიუმის შედარებით დიდი რაოდენობით მიღება 1831 წელს ფრანგმა მეცნიერმა ანტუან-ალექსანდრ-ბრუტუს ბიუსიმ შეძლო. მან მაგნიუმის ქლორიდი კალიუმთან ურთიერთქმედებით დაშალა, რის შემდეგაც მიღებული ლითონის თვისებები შეისწავლა.</p>
+</section>
+
+<section class="details" id="facts" hidden>
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+<thead>
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ჯგუფი</td>
+<td>2</td>
+<td>დნობის ტემპერატურა</td>
+<td>650°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>3</td>
+<td>დუღილის ტემპერატურა</td>
+<td>1090°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>s</td>
+<td>სიმკვრივე</td>
+<td>1.74 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>12</td>
+<td>შედარებითი ატომური მასა</td>
+<td>24.305</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>ძირითადი იზოტოპი</td>
+<td>²⁴Mg</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Ne] 3s²</td>
+<td>CAS ნომერი</td>
+<td>7439-95-4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</section>
+
+<aside class="photo">
+<img src="Magnesium-L.jpg" alt="მაგნიუმი">
+<p class="photo-caption">მაგნიუმის ნიმუში</p>
+
+<img src="Screenshot 2026-11-12 211312.png" alt="მაგნიუმის დამატებითი გამოსახულება">
+<p class="photo-caption">მაგნიუმი — ქიმიური ელემენტი Mg</p>
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = !section.hidden;
+
+    section.hidden = isOpen;
+    button.setAttribute("aria-expanded", String(!isOpen));
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+
+    otherSection.hidden = true;
+    otherButton.setAttribute("aria-expanded", "false");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
