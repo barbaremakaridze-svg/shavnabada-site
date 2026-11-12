@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ქლორი (Cl)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #faf5f0;
+    color: #966b4d;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #704526;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eadccf;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #704526;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0 20px;
+}
+
+.toggle-button {
+    background: #966b4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #704526;
+}
+
+.details {
+    background: #fffaf6;
+    border: 1px solid #eadccf;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(112, 69, 38, 0.08);
+    animation: appear 0.4s ease;
+}
+
+.details[hidden] {
+    display: none;
+}
+
+.details h2 {
+    color: #704526;
+    margin-top: 0;
+}
+
+.details p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.facts-table th,
+.facts-table td {
+    border: 1px solid #eadccf;
+    padding: 12px;
+    text-align: left;
+}
+
+.facts-table th {
+    background: #f1e4d8;
+    color: #704526;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(112, 69, 38, 0.15);
+}
+
+.photo-caption {
+    text-align: center;
+    color: #704526;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ქლორი (Cl)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი</strong>
+<span>1774 წელი</span>
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი</strong>
+<span>კარლ ვილჰელმ შეელე (Carl Wilhelm Scheele)</span>
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა</strong>
+<span>ბერძნული სიტყვიდან „chloros“, რაც მომწვანო-მოყვითალოს ნიშნავს.</span>
+</div>
+
+<div class="fact">
+<strong>ალოტროპები</strong>
+<span>Cl₂</span>
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false" aria-controls="history">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false" aria-controls="facts">
+ფაქტები ▼
+</button>
+</div>
+
+<section class="details" id="history" hidden>
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+მარილმჟავა (HCl) ალქიმიკოსებისთვის ჯერ კიდევ უძველესი დროიდან იყო ცნობილი. თუმცა, ქლორი, როგორც აირადი ნივთიერება, პირველად 1774 წელს შვედმა ქიმიკოსმა კარლ ვილჰელმ შეელემ შვედეთის ქალაქ უფსალაში მიიღო.
+</p>
+
+<p>
+მან მარილმჟავა ბუნებრივ მინერალ პიროლუზიტთან (მანგანუმის დიოქსიდი, MnO₂) ერთად გააცხელა. შედეგად წარმოიქმნა მკვრივი, მომწვანო-მოყვითალო აირი, რომელსაც მახრჩობელა სუნი ჰქონდა. შეელემ შენიშნა, რომ ეს აირი წყალში იხსნებოდა და მჟავა ხსნარს წარმოქმნიდა.
+</p>
+
+<p>
+მან ასევე აღმოაჩინა, რომ ქლორი ლაკმუსის ქაღალდს ათეთრებდა და ფოთლებსა და ყვავილებს ფერს უკარგავდა.
+</p>
+
+<p>
+1807 წელს ჰამფრი დეივიმ ქლორის შესწავლა დაიწყო და საბოლოოდ დაასკვნა, რომ ის არა მხოლოდ მარტივი ნივთიერება, არამედ ნამდვილი ქიმიური ელემენტიც იყო.
+</p>
+
+<p>
+მან ეს აღმოჩენა 1810 წელს გამოაცხადა, თუმცა ქიმიკოსებს კიდევ დაახლოებით ათი წელი დასჭირდათ იმის მისაღებად, რომ ქლორი მართლაც ქიმიური ელემენტი იყო.
+</p>
+</section>
+
+<section class="details" id="facts" hidden>
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+<thead>
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ჯგუფი</td>
+<td>17</td>
+<td>დნობის ტემპერატურა</td>
+<td>−101.5°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>3</td>
+<td>დუღილის ტემპერატურა</td>
+<td>−34.04°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>0.002898 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>17</td>
+<td>შედარებითი ატომური მასა</td>
+<td>35.45</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>აირადი</td>
+<td>ძირითადი იზოტოპები</td>
+<td>³⁵Cl, ³⁷Cl</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Ne] 3s²3p⁵</td>
+<td>CAS ნომერი</td>
+<td>7782-50-5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</section>
+
+<aside class="photo">
+
+<img src="Chlorine-L.jpg" alt="ქლორის ნიმუში">
+<p class="photo-caption">ქლორის ნიმუში</p>
+
+<img src="Screenshot 2026-11-12 212914.png" alt="ქლორი — ქიმიური ელემენტი Cl">
+<p class="photo-caption">ქლორი — ქიმიური ელემენტი Cl</p>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = !section.hidden;
+
+    section.hidden = isOpen;
+    button.setAttribute("aria-expanded", String(!isOpen));
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+
+    otherSection.hidden = true;
+    otherButton.setAttribute("aria-expanded", "false");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
