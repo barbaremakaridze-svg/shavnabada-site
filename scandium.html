@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>სკანდიუმი (Sc)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f3f9fc;
+    color: #638da8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #386b89;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #d9e9f1;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #386b89;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0 20px;
+}
+
+.toggle-button {
+    background: #78a9c4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #386b89;
+}
+
+.details {
+    background: #fafdff;
+    border: 1px solid #d9e9f1;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(56, 107, 137, 0.08);
+    animation: appear 0.4s ease;
+}
+
+.details[hidden] {
+    display: none;
+}
+
+.details h2 {
+    color: #386b89;
+    margin-top: 0;
+}
+
+.details p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.facts-table th,
+.facts-table td {
+    border: 1px solid #d9e9f1;
+    padding: 12px;
+    text-align: left;
+}
+
+.facts-table th {
+    background: #e3f0f6;
+    color: #386b89;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(56, 107, 137, 0.15);
+}
+
+.photo-caption {
+    text-align: center;
+    color: #386b89;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>სკანდიუმი (Sc)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი</strong>
+<span>1879 წელი</span>
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი</strong>
+<span>ლარს ფრედერიკ ნილსონი (Lars Frederik Nilson)</span>
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა</strong>
+<span>„Scandia“-დან, რაც სკანდინავიის ლათინური სახელწოდებაა.</span>
+</div>
+
+<div class="fact">
+<strong>ალოტროპები</strong>
+<span>არ აქვს</span>
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false" aria-controls="history">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false" aria-controls="facts">
+ფაქტები ▼
+</button>
+</div>
+
+<section class="details" id="history" hidden>
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+1869 წელს დიმიტრი მენდელეევმა შენიშნა, რომ კალციუმისა (40) და ტიტანის (48) ატომურ მასებს შორის შუალედი არსებობდა. მან ივარაუდა, რომ ამ ორ ელემენტს შორის ჯერ კიდევ აღმოუჩენელი ელემენტი უნდა ყოფილიყო, რომლის ატომური მასაც შუალედური იქნებოდა. მან ასევე იწინასწარმეტყველა, რომ ამ ელემენტის ოქსიდის ფორმულა იქნებოდა X₂O₃.
+</p>
+
+<p>
+ეს ელემენტი 1879 წელს შვედეთის უფსალის უნივერსიტეტის მეცნიერმა ლარს ფრედერიკ ნილსონმა აღმოაჩინა და მას სკანდიუმი უწოდა.
+</p>
+
+<p>
+მან სკანდიუმი მინერალ ეუქსენიტიდან გამოყო. ეს მინერალი რვა სხვადასხვა მეტალის ოქსიდს შეიცავს. თავდაპირველად ნილსონმა ეუქსენიტიდან ერბიუმის ოქსიდი მიიღო, შემდეგ კი მისგან იბიტრიუმის ოქსიდი გამოყო. ამის შემდეგ მან კიდევ ერთი, უფრო მსუბუქი ელემენტის ოქსიდი მიიღო. მისი ატომური სპექტრის შესწავლამ აჩვენა, რომ ის უცნობ მეტალს ეკუთვნოდა.
+</p>
+
+<p>
+ეს სწორედ ის ელემენტი აღმოჩნდა, რომლის არსებობაც მენდელეევს წინასწარ ჰქონდა ნაწინასწარმეტყველები. მის ოქსიდს Sc₂O₃ ფორმულა ჰქონდა.
+</p>
+
+<p>
+თავად მეტალური სკანდიუმი პირველად მხოლოდ 1937 წელს მიიღეს გამდნარი სკანდიუმის ქლორიდის ელექტროლიზის საშუალებით.
+</p>
+</section>
+
+<section class="details" id="facts" hidden>
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+<thead>
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ჯგუფი</td>
+<td>3</td>
+<td>დნობის ტემპერატურა</td>
+<td>1541°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>4</td>
+<td>დუღილის ტემპერატურა</td>
+<td>2836°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>d</td>
+<td>სიმკვრივე</td>
+<td>2.99 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>21</td>
+<td>შედარებითი ატომური მასა</td>
+<td>44.956</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>ძირითადი იზოტოპი</td>
+<td>⁴⁵Sc</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Ar] 3d¹4s²</td>
+<td>CAS ნომერი</td>
+<td>7440-20-2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</section>
+
+<aside class="photo">
+
+<img src="Scandium-L.jpg" alt="სკანდიუმის ნიმუში">
+<p class="photo-caption">სკანდიუმის ნიმუში</p>
+
+<img src="Screenshot 2026-11-12 214509.png" alt="სკანდიუმი — ქიმიური ელემენტი Sc">
+<p class="photo-caption">სკანდიუმი — ქიმიური ელემენტი Sc</p>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = !section.hidden;
+
+    section.hidden = isOpen;
+    button.setAttribute("aria-expanded", String(!isOpen));
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+
+    otherSection.hidden = true;
+    otherButton.setAttribute("aria-expanded", "false");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
