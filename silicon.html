@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>სილიციუმი — Silicon</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f8f3fc;
+    color: #76518e;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #58316f;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e5d7ee;
+    font-size: 16px;
+}
+
+.fact strong {
+    color: #58316f;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.toggle-button {
+    background: #80539b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-button:hover {
+    background: #603779;
+}
+
+.details {
+    margin-top: 25px;
+    padding: 25px;
+    background: #fdfaff;
+    border: 1px solid #e5d7ee;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(100, 65, 125, 0.10);
+    animation: appear 0.3s ease;
+}
+
+.details[hidden] {
+    display: none;
+}
+
+.details h2 {
+    color: #58316f;
+    margin-top: 0;
+}
+
+.details p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 500px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    border: 1px solid #e5d7ee;
+}
+
+.facts-table th {
+    background: #eee3f5;
+    color: #58316f;
+}
+
+.facts-table td {
+    background: #fdfaff;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+    background: #fdfaff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(100, 65, 125, 0.12);
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #58316f;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>სილიციუმი (Si)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი</strong>
+<span>1824 წელი</span>
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი</strong>
+<span>იონს იაკობ ბერცელიუსი (Jöns Jacob Berzelius)</span>
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა</strong>
+<span>სახელწოდება მომდინარეობს ლათინური სიტყვებიდან „silex“ ან „silicis“, რაც კაჟს ნიშნავს.</span>
+</div>
+
+<div class="fact">
+<strong>ალოტროპები</strong>
+<span>ამორფული სილიციუმი, კრისტალური სილიციუმი</span>
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false" aria-controls="history">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false" aria-controls="facts">
+ფაქტები ▼
+</button>
+</div>
+
+<section class="details" id="history" hidden>
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>სილიციუმის დიოქსიდი (SiO₂), კაჟის სახით, ერთ-ერთი პირველი მასალა იყო, რომლისგანაც ადამიანები ბასრ იარაღებსა და ხელსაწყოებს ამზადებდნენ. უძველესი ცივილიზაციები სილიციუმის დიოქსიდის სხვა ფორმებსაც იყენებდნენ, მაგალითად, მთის ბროლს. მათ ასევე იცოდნენ, როგორ მიეღოთ მინა ქვიშისგან.</p>
+
+<p>მიუხედავად იმისა, რომ სილიციუმი ბუნებაში ძალიან დიდი რაოდენობით გვხვდება, ადრეული ქიმიკოსები მის მიმართ დიდ ინტერესს არ იჩენდნენ.</p>
+
+<p>სილიციუმის დიოქსიდის შემადგენელ ნაწილებად დაშლის მცდელობები ელექტროლიზის საშუალებით წარუმატებელი აღმოჩნდა.</p>
+
+<p>1811 წელს ჯოზეფ გეი-ლუსაკმა და ლუი-ჟაკ ტენარმა სილიციუმის ტეტრაქლორიდი მეტალურ კალიუმთან შეაერთეს და მიიღეს სილიციუმის ძალიან არაწმინდა ფორმა.</p>
+
+<p>სილიციუმის აღმოჩენა ძირითადად შვედ ქიმიკოსს, იონს იაკობ ბერცელიუსს მიეწერება. მან 1824 წელს კალიუმის ფტორსილიკატი კალიუმთან ერთად გააცხელა და სილიციუმი მიიღო.</p>
+
+<p>მიღებული პროდუქტი კალიუმის სილიციდით იყო დაბინძურებული, თუმცა ბერცელიუსმა მისი მოცილება წყალში მორევით შეძლო, რადგან ეს ნაერთი წყალთან რეაქციაში შედის. შედეგად მან შედარებით სუფთა სილიციუმის ფხვნილი მიიღო.</p>
+</section>
+
+<section class="details" id="facts" hidden>
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+<thead>
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ჯგუფი</td>
+<td>14</td>
+<td>დნობის ტემპერატურა</td>
+<td>1414°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>3</td>
+<td>დუღილის ტემპერატურა</td>
+<td>3265°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>2.3296 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>14</td>
+<td>შედარებითი ატომური მასა</td>
+<td>28.085</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>ძირითადი იზოტოპები</td>
+<td>²⁸Si, ³⁰Si</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Ne] 3s²3p²</td>
+<td>CAS ნომერი</td>
+<td>7440-21-3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</section>
+
+<aside class="photo">
+<img src="History.jpg" alt="სილიციუმის ისტორია">
+<p class="photo-caption">სილიციუმის ნიმუში</p>
+
+<img src="Screenshot 2026-11-12 211955.png" alt="სილიციუმი">
+<p class="photo-caption">სილიციუმი — ქიმიური ელემენტი Si</p>
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = !section.hidden;
+
+    section.hidden = isOpen;
+    button.setAttribute("aria-expanded", String(!isOpen));
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+
+    otherSection.hidden = true;
+    otherButton.setAttribute("aria-expanded", "false");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
+
