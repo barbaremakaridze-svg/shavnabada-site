@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ტიტანი (Ti)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f3f9fc;
+    color: #638da8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #386b89;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #d9e9f1;
+}
+
+.fact strong {
+    color: #386b89;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.toggle-button {
+    background: #78a9c4;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #386b89;
+}
+
+.details {
+    margin-top: 25px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #d9e9f1;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(56, 107, 137, 0.08);
+    animation: appear 0.4s ease;
+}
+
+.details h2 {
+    color: #386b89;
+    margin-top: 0;
+}
+
+.details p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    border: 1px solid #d9e9f1;
+    text-align: left;
+}
+
+.facts-table th {
+    background: #e3f0f6;
+    color: #386b89;
+}
+
+.facts-table tr:nth-child(even) {
+    background: #f3f9fc;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photo img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(56, 107, 137, 0.15);
+}
+
+.photo-caption {
+    text-align: center;
+    color: #638da8;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ტიტანი (Ti)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი</strong>
+<span>1791 წელი</span>
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი</strong>
+<span>უილიამ გრეგორი (William Gregor)</span>
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა</strong>
+<span>სახელი მომდინარეობს ტიტანებისგან — ბერძნულ მითოლოგიაში დედამიწის ქალღმერთის შვილებისგან.</span>
+</div>
+
+<div class="fact">
+<strong>ალოტროპები</strong>
+<span>—</span>
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false" aria-controls="history">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false" aria-controls="facts">
+ფაქტები ▼
+</button>
+</div>
+
+<section class="details" id="history" hidden>
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+ტიტანის შემცველი პირველი მინერალი — შავი ქვიშა, რომელსაც მენაქანიტს უწოდებდნენ, 1791 წელს კორნუოლში აღმოაჩინა სასულიერო პირმა, უილიამ გრეგორმა. მან მინერალი შეისწავლა და დაასკვნა, რომ იგი შედგებოდა რკინის ოქსიდებისა და უცნობი ლითონის ოქსიდისგან. ამის შესახებ მან კორნუოლის სამეფო გეოლოგიურ საზოგადოებას შეატყობინა.
+</p>
+
+<p>
+1795 წელს გერმანელმა მეცნიერმა, ბერლინელმა მარტინ ჰაინრიხ კლაპროტმა, უნგრეთში აღმოაჩინა მოწითალო მადანი, რომელსაც შორლს უწოდებდნენ. ეს მინერალი რუტილის ერთ-ერთი სახეობაა (TiO₂). კლაპროტმა დაადგინა, რომ იგი მანამდე უცნობი ელემენტის ოქსიდს წარმოადგენდა და ამ ელემენტს ტიტანი უწოდა. როდესაც მან გრეგორის აღმოჩენის შესახებ შეიტყო, მენაქანიტიც შეისწავლა და დაადასტურა, რომ ისიც ტიტანს შეიცავდა.
+</p>
+
+<p>
+სუფთა ტიტანის ლითონი მხოლოდ 1910 წელს მიიღო მ. ა. ჰანტერმა, რომელიც აშშ-ში, კომპანია „ჯენერალ ელექტრიკში“ მუშაობდა. მან ამისთვის ტიტანის ტეტრაქლორიდი ნატრიუმის ლითონთან ერთად გააცხელა.
+</p>
+
+</section>
+
+<section class="details" id="facts" hidden>
+<h2>ტიტანის მახასიათებლები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+<thead>
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ჯგუფი</td>
+<td>4</td>
+<td>დნობის ტემპერატურა</td>
+<td>1670°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>4</td>
+<td>დუღილის ტემპერატურა</td>
+<td>3287°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>d</td>
+<td>სიმკვრივე</td>
+<td>4.506 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>22</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>47.867</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მთავარი იზოტოპი</td>
+<td>⁴⁸Ti</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Ar] 3d²4s²</td>
+<td>CAS ნომერი</td>
+<td>7440-32-6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</section>
+
+<aside class="photo">
+
+<img src="Titanium-L.jpg" alt="ტიტანის ნიმუში">
+<p class="photo-caption">ტიტანის ნიმუში</p>
+
+<img src="Screenshot 2026-11-12 215043.png" alt="ტიტანი — ქიმიური ელემენტი Ti">
+<p class="photo-caption">ტიტანი — ქიმიური ელემენტი Ti</p>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = !section.hidden;
+
+    section.hidden = isOpen;
+    button.setAttribute("aria-expanded", String(!isOpen));
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+
+    otherSection.hidden = true;
+    otherButton.setAttribute("aria-expanded", "false");
+
+    if (otherButton === historyButton) {
+        otherButton.textContent = "ისტორია ▼";
+    } else {
+        otherButton.textContent = "ფაქტები ▼";
+    }
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
