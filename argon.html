@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>არგონი (Ar)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #fffdf0;
+    color: #a88b12;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #806b16;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee4b8;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #806b16;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0 20px;
+}
+
+.toggle-button {
+    background: #b49a24;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #806b16;
+}
+
+.details {
+    background: #fffef7;
+    border: 1px solid #eee4b8;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(128, 107, 22, 0.08);
+    animation: appear 0.4s ease;
+}
+
+.details[hidden] {
+    display: none;
+}
+
+.details h2 {
+    color: #806b16;
+    margin-top: 0;
+}
+
+.details p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.facts-table th,
+.facts-table td {
+    border: 1px solid #eee4b8;
+    padding: 12px;
+    text-align: left;
+}
+
+.facts-table th {
+    background: #f8f0c9;
+    color: #806b16;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(128, 107, 22, 0.15);
+}
+
+.photo-caption {
+    text-align: center;
+    color: #806b16;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>არგონი (Ar)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი</strong>
+<span>1894 წელი</span>
+</div>
+
+<div class="fact">
+<strong>აღმომჩენები</strong>
+<span>ლორდ რეილი (Lord Rayleigh) და სერ უილიამ რამზი (Sir William Ramsay)</span>
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა</strong>
+<span>ბერძნული სიტყვიდან „argos“, რაც უმოქმედოს ან უქმეს ნიშნავს.</span>
+</div>
+
+<div class="fact">
+<strong>ალოტროპები</strong>
+<span>არ აქვს</span>
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false" aria-controls="history">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false" aria-controls="facts">
+ფაქტები ▼
+</button>
+</div>
+
+<section class="details" id="history" hidden>
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+მიუხედავად იმისა, რომ არგონი დედამიწის ატმოსფეროში საკმაოდ დიდი რაოდენობით გვხვდება, მისი აღმოჩენა მხოლოდ 1894 წელს მოხერხდა. ის პირველად ლორდ რეილიმ და უილიამ რამზიმ თხევადი ჰაერიდან გამოყვეს.
+</p>
+
+<p>
+სინამდვილეში, ეს აირი ჯერ კიდევ 1785 წელს ჰენრი კავენდიშმა გამოყო. მან შენიშნა, რომ ჰაერის დაახლოებით 1% უკიდურეს პირობებშიც კი არ შედიოდა ქიმიურ რეაქციაში. ეს 1% სწორედ არგონი იყო.
+</p>
+
+<p>
+არგონის აღმოჩენა უკავშირდება მცდელობას, აეხსნათ, რატომ განსხვავდებოდა ჰაერიდან მიღებული აზოტის სიმკვრივე ამიაკის დაშლით მიღებული აზოტის სიმკვრივისგან.
+</p>
+
+<p>
+რამზიმ ჰაერიდან გამოყოფილ აირში არსებული მთელი აზოტი მოაშორა. ამისთვის მან აირი გახურებულ მაგნიუმთან შეაერთა, რის შედეგადაც მყარი მაგნიუმის ნიტრიდი წარმოიქმნა.
+</p>
+
+<p>
+ამის შემდეგ დარჩა აირი, რომელიც ქიმიურ რეაქციაში არ შედიოდა. მისი სპექტრის შესწავლისას რამზიმ წითელი და მწვანე ხაზების ახალი ჯგუფები აღმოაჩინა, რამაც დაადასტურა, რომ ეს ახალი ქიმიური ელემენტი იყო.
+</p>
+</section>
+
+<section class="details" id="facts" hidden>
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+<thead>
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ჯგუფი</td>
+<td>18</td>
+<td>დნობის ტემპერატურა</td>
+<td>−189.34°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>3</td>
+<td>დუღილის ტემპერატურა</td>
+<td>−185.848°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>0.001633 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>18</td>
+<td>შედარებითი ატომური მასა</td>
+<td>39.95</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>აირადი</td>
+<td>ძირითადი იზოტოპი</td>
+<td>⁴⁰Ar</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Ne] 3s²3p⁶</td>
+<td>CAS ნომერი</td>
+<td>7440-37-1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</section>
+
+<aside class="photo">
+
+<img src="Argon-L.jpg" alt="არგონის ნიმუში">
+<p class="photo-caption">არგონის ნიმუში</p>
+
+<img src="Screenshot 2026-11-12 213604.png" alt="არგონი — ქიმიური ელემენტი Ar">
+<p class="photo-caption">არგონი — ქიმიური ელემენტი Ar</p>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = !section.hidden;
+
+    section.hidden = isOpen;
+    button.setAttribute("aria-expanded", String(!isOpen));
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+
+    otherSection.hidden = true;
+    otherButton.setAttribute("aria-expanded", "false");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
