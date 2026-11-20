@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ცირკონიუმი (Zr)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f2f5f7;
+    color: #71818d;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #405d70;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #dce4e9;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #405d70;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #7896a9;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #405d70;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #dce4e9;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(64, 93, 112, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #405d70;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dce4e9;
+}
+
+.facts-table th {
+    background: #e4edf2;
+    color: #405d70;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #71818d;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ცირკონიუმი (Zr)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1789 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> მარტინ ჰაინრიხ კლაპროთი (Martin Heinrich Klaproth)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს სპარსული სიტყვიდან „zargun“, რაც ოქროსფერს ნიშნავს.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+ცირკონიუმის შემცველი ძვირფასი ქვები უძველესი დროიდან იყო ცნობილი და მათ ცირკონს უწოდებდნენ. 1789 წელს გერმანელმა ქიმიკოსმა, მარტინ კლაპროთმა ცირკონი შეისწავლა და ცირკონიუმი მისი ოქსიდის — ცირკონიის (ZrO₂) სახით გამოყო.
+</p>
+
+<p>
+კლაპროთმა სუფთა მეტალის მიღება ვერ შეძლო. ამაში წარუმატებელი აღმოჩნდა ჰამფრი დევიც, რომელმაც 1808 წელს ელექტროლიზის მეთოდი სცადა. ელემენტი მხოლოდ 1824 წელს გამოყვეს, როდესაც შვედმა ქიმიკოსმა იენს ბერცელიუსმა კალიუმის ჰექსაფტორცირკონატი (K₂ZrF₆) მეტალურ კალიუმთან ერთად გააცხელა და შავი ფერის ცირკონიუმის ფხვნილი მიიღო.
+</p>
+
+<p>
+სრულიად სუფთა ცირკონიუმი მხოლოდ 1925 წელს მიიღეს ნიდერლანდელმა ქიმიკოსებმა, ანტონ ედუარდ ვან არკელმა და იან ჰენდრიკ დე ბურმა. ამისთვის მათ ცირკონიუმის ტეტრაიოდიდი (ZrI₄) დაშალეს.
+</p>
+
+<p>
+დღეს ცირკონიუმს დიდი რაოდენობით ცირკონიუმის ტეტრაქლორიდის (ZrCl₄) მაგნიუმთან გაცხელებით იღებენ.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>4</td>
+<td>დნობის ტემპერატურა</td>
+<td>1854°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>5</td>
+<td>დუღილის ტემპერატურა</td>
+<td>4406°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>d</td>
+<td>სიმკვრივე</td>
+<td>6.52 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>40</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>91.224</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მთავარი იზოტოპები</td>
+<td>⁹⁰Zr, ⁹²Zr, ⁹⁴Zr</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Kr] 4d²5s²</td>
+<td>CAS ნომერი</td>
+<td>7440-67-7</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Zirconium-L.jpg" alt="ცირკონიუმის ნიმუში">
+<div class="photo-caption">ცირკონიუმის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 230716.png" alt="ცირკონიუმი">
+<div class="photo-caption">ცირკონიუმი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
