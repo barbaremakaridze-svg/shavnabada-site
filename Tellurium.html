@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>თელურიუმი (Te)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f3f7f2;
+    color: #71836f;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #486b45;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #dce7da;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #486b45;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #7d9e77;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #486b45;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #dce7da;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(72, 107, 69, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #486b45;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dce7da;
+}
+
+.facts-table th {
+    background: #e5eee2;
+    color: #486b45;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #71836f;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>თელურიუმი (Te)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1783 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> ფრანც-იოზეფ მიულერ ფონ რაიხენშტაინი (Franz-Joseph Müller von Reichenstein)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ლათინური სიტყვიდან „tellus“, რაც დედამიწას ნიშნავს.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+თელურიუმი 1783 წელს რუმინეთის ქალაქ სიბიუში ფრანც იოზეფ მიულერ ფონ რაიხენშტაინმა აღმოაჩინა. მისი ყურადღება მიიპყრო ზალატნას მახლობლად მდებარე მაღაროდან მოპოვებულმა მადანმა, რომელსაც მეტალისებრი ბზინვარება ჰქონდა. მას ეჭვი ჰქონდა, რომ ეს შესაძლოა ბუნებრივი სტიბიუმი ან ბისმუტი ყოფილიყო. სინამდვილეში კი ეს ოქროს ტელურიდი (AuTe₂) აღმოჩნდა.
+</p>
+
+<p>
+პირველადი გამოკვლევების შედეგად დადგინდა, რომ მადანი არც სტიბიუმს შეიცავდა და არც ბისმუტს. მიულერი სამი წლის განმავლობაში იკვლევდა მას და დაამტკიცა, რომ მასში ახალი ელემენტი იყო. მან თავისი აღმოჩენის შესახებ ნაშრომი ნაკლებად ცნობილ სამეცნიერო ჟურნალში გამოაქვეყნა, რის გამოც ეს აღმოჩენა თითქმის შეუმჩნეველი დარჩა.
+</p>
+
+<p>
+1796 წელს მან ნიმუში ბერლინში მარტინ კლაპროტს გაუგზავნა, რომელმაც მისი აღმოჩენა დაადასტურა. კლაპროტმა სუფთა ნიმუში მიიღო და ელემენტს თელურიუმი უწოდა.
+</p>
+
+<p>
+საინტერესოა, რომ ეს არ ყოფილა თელურიუმის პირველი ნიმუში, რომელიც კლაპროტის ხელში მოხვდა. ჯერ კიდევ 1789 წელს მას ეს ელემენტი უნგრელმა მეცნიერმა პოლ კიტაიბელმა გაუგზავნა, რომელსაც თელურიუმი დამოუკიდებლად ჰქონდა აღმოჩენილი.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>16</td>
+<td>დნობის ტემპერატურა</td>
+<td>449.51°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>5</td>
+<td>დუღილის ტემპერატურა</td>
+<td>988°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>6.232 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>52</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>127.60</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მნიშვნელოვანი იზოტოპები</td>
+<td>¹³⁰Te</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Kr] 4d¹⁰5s²5p⁴</td>
+<td>CAS ნომერი</td>
+<td>13494-80-9</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Tellurium-L.jpg" alt="თელურიუმის ნიმუში">
+<div class="photo-caption">თელურიუმის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 233505.png" alt="თელურიუმი">
+<div class="photo-caption">თელურიუმი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
