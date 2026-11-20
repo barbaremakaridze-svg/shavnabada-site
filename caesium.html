@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>კეზიუმი (Cs)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f1f7fa;
+    color: #668397;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #356b89;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #d9e7ed;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #356b89;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #79a8c1;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #356b89;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #d9e7ed;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(53, 107, 137, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #356b89;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #d9e7ed;
+}
+
+.facts-table th {
+    background: #e2eef4;
+    color: #356b89;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #668397;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>კეზიუმი (Cs)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1860 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> გუსტავ კირხჰოფი და რობერტ ბუნზენი (Gustav Kirchhoff and Robert Bunsen)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ლათინური სიტყვიდან „caesius“, რაც ცისფერ ფერს ნიშნავს და ელემენტის ალის შეფერილობას უკავშირდება.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+კეზიუმი კარლ პლატნერმა თითქმის აღმოაჩინა 1846 წელს, როდესაც მინერალ პოლუციტს (კეზიუმის ალუმინოსილიკატს) იკვლევდა. მან შეძლო მინერალში არსებული ელემენტების მხოლოდ 93%-ის განსაზღვრა, შემდეგ კი კვლევის გასაგრძელებლად მასალა აღარ დარჩა. მოგვიანებით გაირკვა, რომ მან კეზიუმი ნატრიუმსა და კალიუმში აერია.
+</p>
+
+<p>
+კეზიუმი საბოლოოდ 1860 წელს გერმანიის ქალაქ ჰაიდელბერგში გუსტავ კირხჰოფმა და რობერტ ბუნზენმა აღმოაჩინეს. მათ დიურკჰაიმის მინერალური წყალი შეისწავლეს და სპექტრში ისეთი ხაზები შენიშნეს, რომლებიც მანამდე ცნობილი არ იყო. ეს ახალი ელემენტის არსებობაზე მიუთითებდა.
+</p>
+
+<p>
+ამ წყაროდან მათ დაახლოებით 7 გრამი კეზიუმის ქლორიდი მიიღეს, თუმცა თავად ლითონის გამოყოფა ვერ შეძლეს. ეს მოგვიანებით ბონის უნივერსიტეტის მეცნიერმა კარლ თეოდორ ზეტერბერგმა მოახერხა — მან კეზიუმის ციანიდის (CsCN) გამდნარი ნაერთის ელექტროლიზით სუფთა კეზიუმი მიიღო.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>1</td>
+<td>დნობის ტემპერატურა</td>
+<td>28.5°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>6</td>
+<td>დუღილის ტემპერატურა</td>
+<td>671°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>s</td>
+<td>სიმკვრივე</td>
+<td>1.873 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>55</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>132.905</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მნიშვნელოვანი იზოტოპები</td>
+<td>¹³³Cs</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Xe] 6s¹</td>
+<td>CAS ნომერი</td>
+<td>7440-46-2</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Caesium-L.jpg" alt="კეზიუმის ნიმუში">
+<div class="photo-caption">კეზიუმის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 234200.png" alt="კეზიუმი">
+<div class="photo-caption">კეზიუმი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
