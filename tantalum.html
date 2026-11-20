@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ტანტალი (Ta)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f2f4f7;
+    color: #687586;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #3f526b;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #dce2e9;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #3f526b;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #75869d;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #3f526b;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #dce2e9;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(63, 82, 107, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #3f526b;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dce2e9;
+}
+
+.facts-table th {
+    background: #e3e8ef;
+    color: #3f526b;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #687586;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ტანტალი (Ta)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1802 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> ანდერს გუსტავ ეკებერგი (Anders Gustav Ekeberg)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ძველი ბერძნული მითოლოგიის პერსონაჟის, მეფე ტანტალოსის სახელიდან.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+ტანტალი ახალ ლითონად 1802 წელს შვედეთში, უფსალის უნივერსიტეტში, ანდერს გუსტავ ეკებერგმა წარადგინა. თუმცა, როდესაც უილიამ უოლასტონმა შეისწავლა მინერალები, საიდანაც ეს ელემენტი იყო მიღებული, მან განაცხადა, რომ ტანტალი ნიობიუმის იდენტური იყო. ნიობიუმი ერთი წლით ადრე აღმოაჩინეს. ამ ორი ელემენტის მსგავსებამ მათი იდენტიფიცირებისას გაურკვევლობა გამოიწვია. ისინი ხშირად ერთად გვხვდება და ქიმიური თვისებებითაც ძალიან ჰგვანან ერთმანეთს, რის გამოც იმ დროისთვის არსებული მეთოდებით მათი ერთმანეთისგან გამოყოფა რთული იყო.
+</p>
+
+<p>
+მხოლოდ 1846 წელს შეძლო ჰაინრიხ როზემ ტანტალისა და ნიობიუმის ერთმანეთისგან გამოყოფა და საბოლოოდ დაამტკიცა, რომ ისინი სხვადასხვა ელემენტები იყვნენ. მიუხედავად ამისა, მის მიერ მიღებული ტანტალის ნიმუში ჯერ კიდევ შეიცავდა მინარევებს.
+</p>
+
+<p>
+სუფთა ტანტალი მხოლოდ 1903 წელს მიიღო ვერნერ ფონ ბოლტონმა.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>5</td>
+<td>დნობის ტემპერატურა</td>
+<td>3017°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>6</td>
+<td>დუღილის ტემპერატურა</td>
+<td>5455°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>d</td>
+<td>სიმკვრივე</td>
+<td>16.4 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>73</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>180.948</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მთავარი იზოტოპები</td>
+<td>¹⁸⁰Ta, ¹⁸¹Ta</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Xe] 4f¹⁴5d³6s²</td>
+<td>CAS ნომერი</td>
+<td>7440-25-7</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Tantalum-L.jpg" alt="ტანტალის ნიმუში">
+<div class="photo-caption">ტანტალის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 235418.png" alt="ტანტალი">
+<div class="photo-caption">ტანტალი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
