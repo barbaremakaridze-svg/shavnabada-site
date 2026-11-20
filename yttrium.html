@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>იტრიუმი (Y)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f2f6fa;
+    color: #6b8196;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #345b80;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #dce6ef;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #345b80;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #7098bb;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #345b80;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #dce6ef;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(52, 91, 128, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #345b80;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dce6ef;
+}
+
+.facts-table th {
+    background: #e2edf6;
+    color: #345b80;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #6b8196;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>იტრიუმი (Y)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1794 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> იოჰან გადოლინი (Johan Gadolin)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> იტრიუმს სახელი ეწოდა შვედეთის დასახლებული პუნქტის, იტერბიუს (Ytterby) მიხედვით.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+1787 წელს კარლ არენიუსმა სტოკჰოლმთან ახლოს, იტერბიუს ძველ კარიერში უჩვეულო შავი ქვა აღმოაჩინა. მას ეგონა, რომ ახალი ვოლფრამის შემცველი მინერალი იპოვა და ნიმუში ფინეთში მოღვაწე იოჰან გადოლინს გადასცა.
+</p>
+
+<p>
+1794 წელს გადოლინმა გამოაცხადა, რომ ნიმუში ახალ „მიწას“ შეიცავდა, რომელიც მისი მასის 38%-ს შეადგენდა. მას „მიწა“ იმიტომ ეწოდა, რომ სინამდვილეში იტრიუმის ოქსიდი (Y₂O₃) იყო, რომლის შემდგომი აღდგენა ნახშირთან გაცხელებით შეუძლებელი აღმოჩნდა.
+</p>
+
+<p>
+თავად მეტალური იტრიუმი პირველად 1828 წელს ფრიდრიხ ვიოლერმა მიიღო. მან ამისთვის იტრიუმის ქლორიდი კალიუმთან შეაერთა. თუმცა მოგვიანებით გაირკვა, რომ იტრიუმი სხვა ელემენტებსაც შეიცავდა.
+</p>
+
+<p>
+1843 წელს კარლ მოსანდერმა იტრიუმის ოქსიდი უფრო საფუძვლიანად შეისწავლა და აღმოაჩინა, რომ იგი სამი სხვადასხვა ოქსიდისგან შედგებოდა: თეთრი ფერის იტრიუმის ოქსიდისგან, ყვითელი ფერის ტერბიუმის ოქსიდისგან და ვარდისფერი ფერის ერბიუმის ოქსიდისგან.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>3</td>
+<td>დნობის ტემპერატურა</td>
+<td>1522°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>5</td>
+<td>დუღილის ტემპერატურა</td>
+<td>3345°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>d</td>
+<td>სიმკვრივე</td>
+<td>4.47 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>39</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>88.906</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მთავარი იზოტოპი</td>
+<td>⁸⁹Y</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Kr] 4d¹5s²</td>
+<td>CAS ნომერი</td>
+<td>7440-65-5</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Yttrium-L.jpg" alt="იტრიუმის ნიმუში">
+<div class="photo-caption">იტრიუმის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 230517.png" alt="იტრიუმი">
+<div class="photo-caption">იტრიუმი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
