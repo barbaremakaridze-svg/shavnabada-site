@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>კალა (Sn)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f3f4f5;
+    color: #777f88;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #555f6a;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #dfe2e5;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #555f6a;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #89939d;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #555f6a;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #dfe2e5;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(85, 95, 106, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #555f6a;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dfe2e5;
+}
+
+.facts-table th {
+    background: #e8eaed;
+    color: #555f6a;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #777f88;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>კალა (Sn)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> დაახლოებით ძვ. წ. 2100 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> უცნობია
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ძველი ანგლო-საქსური სიტყვიდან „tin“.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> თეთრი კალა (White Sn), რუხი კალა (Gray Sn), რომბული კალა (Rhombic Sn)
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+კალამ მნიშვნელოვანი გავლენა მოახდინა კაცობრიობის ისტორიაზე, განსაკუთრებით ბრინჯაოს შექმნის გამო. თუმცა მას დამოუკიდებლადაც იყენებდნენ. ამის დასტურია ეგვიპტის მეთვრამეტე დინასტიის (ძვ. წ. 1580–1350 წლები) სამარხში აღმოჩენილი კალის ბეჭედი და მომლოცველის ჭურჭელი.
+</p>
+
+<p>
+ჩინეთში კალას დაახლოებით ძვ. წ. 700 წლიდან მოიპოვებდნენ, იუნანის პროვინციაში. სუფთა კალა აღმოჩენილია ინკების მთიან ციხესიმაგრეში — მაჩუ-პიქჩუზეც.
+</p>
+
+<p>
+როდესაც სპილენძს დაახლოებით 5%-იან კალას უმატებდნენ, მიიღებოდა ბრინჯაო. ეს შენადნობი უფრო დაბალ ტემპერატურაზე დნებოდა, რაც მის დამუშავებას ამარტივებდა. ამასთან, ბრინჯაო გაცილებით მტკიცე იყო და იარაღებისა და ხელსაწყოების დასამზადებლად იდეალურად გამოდგებოდა.
+</p>
+
+<p>
+ბრინჯაოს ხანა ცივილიზაციის განვითარების ერთ-ერთ მნიშვნელოვან ეტაპად არის აღიარებული. ზუსტად არ არის ცნობილი, როგორ აღმოაჩინეს ბრინჯაო, თუმცა ეგვიპტის, მესოპოტამიისა და ინდის ხეობის მოსახლეობამ მისი გამოყენება დაახლოებით ძვ. წ. 3000 წლიდან დაიწყო.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>14</td>
+<td>დნობის ტემპერატურა</td>
+<td>231.928°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>5</td>
+<td>დუღილის ტემპერატურა</td>
+<td>2586°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>7.287 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>50</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>118.710</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მნიშვნელოვანი იზოტოპები</td>
+<td>¹²⁰Sn</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Kr] 4d¹⁰5s²5p²</td>
+<td>CAS ნომერი</td>
+<td>7440-31-5</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Tin-L.jpg" alt="კალის ნიმუში">
+<div class="photo-caption">კალის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 233045.png" alt="კალა">
+<div class="photo-caption">კალა</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
