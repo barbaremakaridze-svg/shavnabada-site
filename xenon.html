@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ქსენონი (Xe)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f2f7fa;
+    color: #668397;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #356782;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #d9e6ed;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #356782;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #79a6bd;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #356782;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #d9e6ed;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(53, 103, 130, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #356782;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #d9e6ed;
+}
+
+.facts-table th {
+    background: #e2edf3;
+    color: #356782;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #668397;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ქსენონი (Xe)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1898 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> სერ უილიამ რამზი და მორის ტრავერსი (Sir William Ramsay and Morris Travers)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ბერძნული სიტყვიდან „xenos“, რაც უცხოს ან უცნობს ნიშნავს.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+ქსენონი 1898 წლის ივლისში ლონდონის საუნივერსიტეტო კოლეჯში უილიამ რამზიმ და მორის ტრავერსმა აღმოაჩინეს. მათ მანამდე თხევადი ჰაერიდან ნეონი, არგონი და კრიპტონი გამოეყოთ და აინტერესებდათ, შეიძლებოდა თუ არა მასში სხვა აირებიც ყოფილიყო.
+</p>
+
+<p>
+მათ დახმარება გაუწია მდიდარმა მრეწველმა ლუდვიგ მონდმა, რომელმაც ახალი თხევადი ჰაერის აპარატი გადასცა. მკვლევრებმა მისი საშუალებით კრიპტონის უფრო დიდი რაოდენობა მიიღეს. განმეორებითი გამოხდის შედეგად მათ საბოლოოდ უფრო მძიმე აირი გამოყვეს. როდესაც ეს აირი ვაკუუმურ მილში შეისწავლეს, მან ულამაზესი ლურჯი ნათება გამოსცა.
+</p>
+
+<p>
+მეცნიერებმა გააცნობიერეს, რომ აღმოაჩინეს კიდევ ერთი აირადი ელემენტი, რომელიც იმ დროისთვის „ინერტული“ აირების ჯგუფს მიაკუთვნეს, რადგან ისინი ქიმიურად თითქმის არ რეაგირებდნენ. ახალ აირს ქსენონი უწოდეს.
+</p>
+
+<p>
+1962 წელს ნილ ბარტლეტმა დაამტკიცა, რომ ქსენონი სრულიად ინერტული არ იყო — მან ფტორის ნაერთი მიიღო. დღემდე ქსენონის 100-ზე მეტი ნაერთია მიღებული.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>18</td>
+<td>დნობის ტემპერატურა</td>
+<td>−111.75°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>5</td>
+<td>დუღილის ტემპერატურა</td>
+<td>−108.099°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>0.005366 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>54</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>131.293</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>აირადი</td>
+<td>მნიშვნელოვანი იზოტოპები</td>
+<td>¹³²Xe</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Kr] 4d¹⁰5s²5p⁶</td>
+<td>CAS ნომერი</td>
+<td>7440-63-3</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Xenon-L.jpg" alt="ქსენონის ნიმუში">
+<div class="photo-caption">ქსენონის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 233914.png" alt="ქსენონი">
+<div class="photo-caption">ქსენონი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
