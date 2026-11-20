@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ინდიუმი (In)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f6f2f8;
+    color: #82728e;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #684b7a;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #e5dce9;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #684b7a;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #9879a9;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #684b7a;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #e5dce9;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(104, 75, 122, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #684b7a;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e5dce9;
+}
+
+.facts-table th {
+    background: #eee5f2;
+    color: #684b7a;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #82728e;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ინდიუმი (In)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1863 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> ფერდინანდ რაიხი და იერონიმუს რიხტერი (Ferdinand Reich and Hieronymous Richter)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ლათინური სიტყვიდან „indicium“, რაც იისფერს ან ინდიგოსფერს ნიშნავს.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+ინდიუმი 1863 წელს გერმანიაში, ფრაიბერგის სამთო სკოლაში, ფერდინანდ რაიხმა აღმოაჩინა. რაიხი თუთიის მადნის — სფალერიტის (ZnS) ნიმუშს იკვლევდა, რადგან ფიქრობდა, რომ ის შესაძლოა ახლად აღმოჩენილ ელემენტ ტალიუმს შეიცავდა.
+</p>
+
+<p>
+კვლევის შედეგად მან ყვითელი ნალექი მიიღო, რომელიც თავდაპირველად ტალიუმის სულფიდად მიიჩნია. თუმცა ატომურმა სპექტროსკოპმა აჩვენა ისეთი ხაზები, რომლებიც ტალიუმისთვის დამახასიათებელი არ იყო. რადგან რაიხი დალტონიზმით იყო, სპექტრის შესასწავლად იერონიმუს რიხტერს მიმართა. რიხტერმა სპექტრში მკვეთრი იისფერი ხაზი შენიშნა. სწორედ ამ ფერმა განაპირობა ელემენტის სახელწოდება — ინდიუმი, რომელიც ლათინური სიტყვიდან indicum მომდინარეობს და იისფერს ნიშნავს.
+</p>
+
+<p>
+რაიხმა და რიხტერმა ერთად შეძლეს ახალი ელემენტის მცირე რაოდენობით გამოყოფა და მისი აღმოჩენის შესახებ განაცხადეს. მოგვიანებით მათ შორის უთანხმოება წარმოიშვა, როდესაც რაიხმა შეიტყო, რომ რიხტერი პარიზში ვიზიტის დროს საკუთარ თავს ახალი ელემენტის აღმომჩენად ასახელებდა.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>13</td>
+<td>დნობის ტემპერატურა</td>
+<td>156.60°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>5</td>
+<td>დუღილის ტემპერატურა</td>
+<td>2027°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>7.31 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>49</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>114.818</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მნიშვნელოვანი იზოტოპები</td>
+<td>¹¹⁵In</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Kr] 4d¹⁰5s²5p¹</td>
+<td>CAS ნომერი</td>
+<td>7440-74-6</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Indium-L.jpg" alt="ინდიუმის ნიმუში">
+<div class="photo-caption">ინდიუმის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 232810.png" alt="ინდიუმი">
+<div class="photo-caption">ინდიუმი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
