@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>კრიპტონი (Kr)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f6f3fa;
+    color: #82749a;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #5e477e;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #e4dced;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #5e477e;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #927bb0;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #5e477e;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #e4dced;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(94, 71, 126, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #5e477e;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e4dced;
+}
+
+.facts-table th {
+    background: #ece5f3;
+    color: #5e477e;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #82749a;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>კრიპტონი (Kr)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1898 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> სერ უილიამ რამზი და მორის ტრავერსი (Sir William Ramsay and Morris Travers)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ბერძნული სიტყვიდან „kryptos“, რაც დამალულს ნიშნავს.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+კეთილშობილი აირის, არგონის აღმოჩენისა და ჰაერიდან მისი გამოყოფის შემდეგ, ლონდონის საუნივერსიტეტო კოლეჯის მეცნიერები, უილიამ რამზი და მორის უილიამ ტრავერსი, დარწმუნდნენ, რომ პერიოდულ სისტემაში ელემენტების ახალი ჯგუფი არსებობდა. მათ ივარაუდეს, რომ არგონში შესაძლოა სხვა, ჯერ კიდევ აღმოუჩენელი ელემენტებიც ყოფილიყო დამალული.
+</p>
+
+<p>
+მეცნიერებმა გადაწყვიტეს, არგონი გაეთხევადებინათ და შემდეგ აეორთქლებინათ. ისინი იმედოვნებდნენ, რომ ამ პროცესის შედეგად უფრო მძიმე კომპონენტი დარჩებოდა. მათი ვარაუდი გამართლდა: 1898 წლის 30 მაისს, დღის მეორე ნახევარში, მათ კრიპტონი მიიღეს და შეძლეს ახალი აირის დაახლოებით 25 სმ³-ის გამოყოფა.
+</p>
+
+<p>
+შემდეგ მათ ნივთიერება დაუყოვნებლივ სპექტრომეტრით შეამოწმეს. ატომური სპექტრის შესწავლის შედეგად დაადგინეს, რომ ეს ახალი, მანამდე უცნობი ელემენტი იყო.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>18</td>
+<td>დნობის ტემპერატურა</td>
+<td>−157.37°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>4</td>
+<td>დუღილის ტემპერატურა</td>
+<td>−153.415°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>p</td>
+<td>სიმკვრივე</td>
+<td>0.003425 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>36</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>83.798</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>აირადი</td>
+<td>მთავარი იზოტოპი</td>
+<td>⁸⁴Kr</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Ar] 3d¹⁰4s²4p⁶</td>
+<td>CAS ნომერი</td>
+<td>7439-90-9</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Krypton-L.jpg" alt="კრიპტონის ნიმუში">
+<div class="photo-caption">კრიპტონის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 225621.png" alt="კრიპტონი">
+<div class="photo-caption">კრიპტონი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
