@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ნიობიუმი (Nb)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f2f4f7;
+    color: #6c7889;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #3e506b;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #dce2e9;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #3e506b;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #7186a3;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #3e506b;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #dce2e9;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(62, 80, 107, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #3e506b;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dce2e9;
+}
+
+.facts-table th {
+    background: #e3e9f0;
+    color: #3e506b;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #6c7889;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ნიობიუმი (Nb)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> 1801 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> ჩარლზ ჰეჩეტი (Charles Hatchett)
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ბერძნული მითოლოგიის პერსონაჟის, ნიობეს სახელიდან. ნიობე მეფე ტანტალოსის ქალიშვილი იყო. ეს სახელი შეირჩა იმიტომ, რომ ნიობიუმს ქიმიური თვისებებით მსგავსება აქვს ტანტალთან.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+1801 წელს ჩარლზ ჰეჩეტი ბრიტანეთის მუზეუმში მინერალებს ათვალიერებდა, როდესაც მისი ყურადღება მიიპყრო ნიმუშმა, რომელსაც კოლუმბიტი ეწერა. მან ივარაუდა, რომ მინერალი ახალ ლითონს შეიცავდა და მისი ვარაუდი გამართლდა.
+</p>
+
+<p>
+ჰეჩეტმა ნიმუში კალიუმის კარბონატთან ერთად გააცხელა, მიღებული ნივთიერება წყალში გახსნა, შემდეგ მჟავა დაამატა და ნალექი მიიღო. თუმცა შემდგომი დამუშავებით თავად ელემენტის გამოყოფა ვერ შეძლო. მან ახალ ელემენტს კოლუმბიუმი უწოდა და ეს სახელწოდება მრავალი წლის განმავლობაში გამოიყენებოდა.
+</p>
+
+<p>
+მოგვიანებით მეცნიერებმა კოლუმბიუმის არსებობაში ეჭვი შეიტანეს, განსაკუთრებით მას შემდეგ, რაც მომდევნო წელს ტანტალი აღმოაჩინეს. ეს ორი ლითონი ბუნებაში ერთად გვხვდება და მათი ერთმანეთისგან გამოყოფა რთულია. 1844 წელს გერმანელმა ქიმიკოსმა ჰაინრიხ როზემ დაამტკიცა, რომ კოლუმბიტი ორივე ელემენტს შეიცავდა და კოლუმბიუმს ნიობიუმი უწოდა.
+</p>
+
+<p>
+სუფთა მეტალური ნიობიუმის ნიმუში 1864 წელს კრისტიან ბლომშტრანდმა მიიღო. მან ნიობიუმის ქლორიდი წყალბადის აირში გაცხელებით აღადგინა.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>5</td>
+<td>დნობის ტემპერატურა</td>
+<td>2477°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>5</td>
+<td>დუღილის ტემპერატურა</td>
+<td>4741°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>d</td>
+<td>სიმკვრივე</td>
+<td>8.57 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>41</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>92.906</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მთავარი იზოტოპი</td>
+<td>⁹³Nb</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Kr] 4d⁴5s¹</td>
+<td>CAS ნომერი</td>
+<td>7440-03-1</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Niobium-L.jpg" alt="ნიობიუმის ნიმუში">
+<div class="photo-caption">ნიობიუმის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 230929.png" alt="ნიობიუმი">
+<div class="photo-caption">ნიობიუმი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
