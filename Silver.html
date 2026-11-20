@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ვერცხლი (Ag)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    font-family: Arial, "Noto Sans Georgian", sans-serif;
+    background: #f4f5f6;
+    color: #78818a;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.info {
+    min-width: 0;
+}
+
+h1 {
+    color: #58636e;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.fact {
+    padding: 13px 0;
+    border-bottom: 1px solid #dfe3e6;
+    line-height: 1.6;
+}
+
+.fact strong {
+    color: #58636e;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    border: none;
+    background: #89949e;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-button:hover {
+    background: #58636e;
+}
+
+.details {
+    display: none;
+    background: white;
+    padding: 22px;
+    border: 1px solid #dfe3e6;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(88, 99, 110, 0.08);
+}
+
+.details.show {
+    display: block;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.details h2 {
+    color: #58636e;
+    margin-top: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.facts-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.facts-table th,
+.facts-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dfe3e6;
+}
+
+.facts-table th {
+    background: #e9ecef;
+    color: #58636e;
+}
+
+.photo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #78818a;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+@media (max-width: 750px) {
+    body {
+        padding: 25px 5%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        max-width: 450px;
+        margin: auto;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+<div class="content">
+
+<section class="info">
+
+<h1>ვერცხლი (Ag)</h1>
+
+<div class="fact">
+<strong>აღმოჩენის თარიღი:</strong> დაახლოებით ძვ. წ. 3000 წელი
+</div>
+
+<div class="fact">
+<strong>აღმომჩენი:</strong> უცნობია
+</div>
+
+<div class="fact">
+<strong>სახელწოდების წარმოშობა:</strong> სახელწოდება მომდინარეობს ძველ ანგლო-საქსური სიტყვიდან „siolfur“.
+</div>
+
+<div class="fact">
+<strong>ალოტროპები:</strong> —
+</div>
+
+<div class="buttons">
+<button class="toggle-button" id="historyButton" aria-expanded="false">
+ისტორია ▼
+</button>
+
+<button class="toggle-button" id="factsButton" aria-expanded="false">
+ფაქტები ▼
+</button>
+</div>
+
+<div class="details" id="history">
+
+<h2>აღმოჩენის ისტორია</h2>
+
+<p>
+თურქეთსა და საბერძნეთში უძველესი მაღაროების მახლობლად აღმოჩენილი წიდის გროვები ადასტურებს, რომ ვერცხლის მოპოვება დაახლოებით ძვ. წ. 3000 წელს დაიწყო.
+</p>
+
+<p>
+ლითონს წმენდდნენ კუპელაციის მეთოდით, რომელიც ქალდეველებმა გამოიგონეს. ისინი დღევანდელი ერაყის სამხრეთ ნაწილში ცხოვრობდნენ. ეს მეთოდი გულისხმობდა გამდნარი ლითონის გაცხელებას არაღრმა ჭურჭელში, რომელშიც ძლიერი ჰაერის ნაკადი შეჰყავდათ. შედეგად, სხვა ლითონები, მაგალითად ტყვია და სპილენძი, იჟანგებოდა, ხოლო ვერცხლი უცვლელი რჩებოდა.
+</p>
+
+<p>
+ათენის აღზევება ნაწილობრივ ლავრიონის ადგილობრივი ვერცხლის მაღაროების გამოყენებამ განაპირობა. ეს მაღაროები ძვ. წ. 600 წლიდან რომის ეპოქის ჩათვლით ფუნქციონირებდა. შუა საუკუნეებში კი გერმანიის მაღაროები ევროპაში ვერცხლის მთავარ წყაროდ იქცა.
+</p>
+
+<p>
+ვერცხლს მოიპოვებდნენ ცენტრალური და სამხრეთ ამერიკის უძველესი ცივილიზაციებიც. მისი მდიდარი საბადოები პერუში, ბოლივიასა და მექსიკაში იყო.
+</p>
+
+</div>
+
+<div class="details" id="facts">
+
+<h2>ფაქტები</h2>
+
+<div class="table-wrapper">
+<table class="facts-table">
+
+<tr>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+<th>მახასიათებელი</th>
+<th>მონაცემი</th>
+</tr>
+
+<tr>
+<td>ჯგუფი</td>
+<td>11</td>
+<td>დნობის ტემპერატურა</td>
+<td>961.78°C</td>
+</tr>
+
+<tr>
+<td>პერიოდი</td>
+<td>5</td>
+<td>დუღილის ტემპერატურა</td>
+<td>2162°C</td>
+</tr>
+
+<tr>
+<td>ბლოკი</td>
+<td>d</td>
+<td>სიმკვრივე</td>
+<td>10.5 გ/სმ³</td>
+</tr>
+
+<tr>
+<td>ატომური ნომერი</td>
+<td>47</td>
+<td>ფარდობითი ატომური მასა</td>
+<td>107.868</td>
+</tr>
+
+<tr>
+<td>მდგომარეობა 20°C-ზე</td>
+<td>მყარი</td>
+<td>მნიშვნელოვანი იზოტოპები</td>
+<td>¹⁰⁷Ag</td>
+</tr>
+
+<tr>
+<td>ელექტრონული კონფიგურაცია</td>
+<td>[Kr] 4d¹⁰5s¹</td>
+<td>CAS ნომერი</td>
+<td>7440-22-4</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+</section>
+
+<aside class="photo">
+
+<div>
+<img src="Silver-L.jpg" alt="ვერცხლის ნიმუში">
+<div class="photo-caption">ვერცხლის ნიმუში</div>
+</div>
+
+<div>
+<img src="Screenshot 2026-11-20 232337.png" alt="ვერცხლი">
+<div class="photo-caption">ვერცხლი</div>
+</div>
+
+</aside>
+
+</div>
+</main>
+
+<script>
+const historyButton = document.getElementById("historyButton");
+const factsButton = document.getElementById("factsButton");
+
+const history = document.getElementById("history");
+const facts = document.getElementById("facts");
+
+function toggleSection(button, section, otherButton, otherSection, label) {
+    const isOpen = section.classList.contains("show");
+
+    section.classList.toggle("show", !isOpen);
+    otherSection.classList.remove("show");
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    otherButton.setAttribute("aria-expanded", "false");
+
+    button.textContent = label + (isOpen ? " ▼" : " ▲");
+    otherButton.textContent = otherButton === historyButton ? "ისტორია ▼" : "ფაქტები ▼";
+}
+
+historyButton.addEventListener("click", () => {
+    toggleSection(historyButton, history, factsButton, facts, "ისტორია");
+});
+
+factsButton.addEventListener("click", () => {
+    toggleSection(factsButton, facts, historyButton, history, "ფაქტები");
+});
+</script>
+
+</body>
+</html>
